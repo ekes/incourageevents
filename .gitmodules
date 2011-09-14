@@ -1,0 +1,3 @@
+[submodule "themes/zen"]
+	path = themes/zen
+	url = git://git.drupal.org/project/zen
