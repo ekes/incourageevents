@@ -19,3 +19,6 @@
 [submodule "modules/contrib/job_scheduler"]
 	path = modules/contrib/job_scheduler
 	url = git://git.drupal.org/project/job_scheduler
+[submodule "modules/contrib/mimemail"]
+	path = modules/contrib/mimemail
+	url = git://git.drupal.org/project/mimemail
