@@ -22,3 +22,6 @@
 [submodule "modules/contrib/mimemail"]
 	path = modules/contrib/mimemail
 	url = git://git.drupal.org/project/mimemail
+[submodule "modules/contrib/cck"]
+	path = modules/contrib/cck
+	url = git://git.drupal.org/project/cck
