@@ -25,3 +25,6 @@
 [submodule "modules/contrib/cck"]
 	path = modules/contrib/cck
 	url = git://git.drupal.org/project/cck
+[submodule "modules/contrib/wysiwyg"]
+	path = modules/contrib/wysiwyg
+	url = git://git.drupal.org/project/wysiwyg
