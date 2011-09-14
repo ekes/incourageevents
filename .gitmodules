@@ -31,3 +31,6 @@
 [submodule "modules/contrib/parser_ical"]
 	path = modules/contrib/parser_ical
 	url = git://git.drupal.org/project/parser_ical
+[submodule "modules/contrib/semanticviews"]
+	path = modules/contrib/semanticviews
+	url = git://git.drupal.org/project/semanticviews
