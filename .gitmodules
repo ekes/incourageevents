@@ -13,3 +13,6 @@
 [submodule "modules/contrib/views"]
 	path = modules/contrib/views
 	url = git://git.drupal.org/project/views
+[submodule "modules/contrib/ctools"]
+	path = modules/contrib/ctools
+	url = git://git.drupal.org/project/ctools
