@@ -1,3 +1,6 @@
 [submodule "themes/zen"]
 	path = themes/zen
 	url = git://git.drupal.org/project/zen
+[submodule "modules/custom/pdfbulletin"]
+	path = modules/custom/pdfbulletin
+	url = git://github.com/ekes/pdfbulletin.git
