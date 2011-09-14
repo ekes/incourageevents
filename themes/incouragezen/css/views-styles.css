@@ -1,0 +1,9 @@
+/**
+ * @file
+ * Views Styling
+ */
+
+.pdfbulletin .view-filters,
+.pdfbulletin .views-admin-links {
+  display: none;
+}
