@@ -28,3 +28,6 @@
 [submodule "modules/contrib/wysiwyg"]
 	path = modules/contrib/wysiwyg
 	url = git://git.drupal.org/project/wysiwyg
+[submodule "modules/contrib/parser_ical"]
+	path = modules/contrib/parser_ical
+	url = git://git.drupal.org/project/parser_ical
