@@ -7,3 +7,6 @@
 [submodule "modules/contrib/date"]
 	path = modules/contrib/date
 	url = git://git.drupal.org/project/date
+[submodule "modules/contrib/feeds"]
+	path = modules/contrib/feeds
+	url = git://git.drupal.org/project/feeds
