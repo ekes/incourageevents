@@ -4,3 +4,6 @@
 [submodule "modules/custom/pdfbulletin"]
 	path = modules/custom/pdfbulletin
 	url = git://github.com/ekes/pdfbulletin.git
+[submodule "modules/contrib/date"]
+	path = modules/contrib/date
+	url = git://git.drupal.org/project/date
