@@ -16,3 +16,6 @@
 [submodule "modules/contrib/ctools"]
 	path = modules/contrib/ctools
 	url = git://git.drupal.org/project/ctools
+[submodule "modules/contrib/job_scheduler"]
+	path = modules/contrib/job_scheduler
+	url = git://git.drupal.org/project/job_scheduler
