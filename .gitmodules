@@ -10,3 +10,6 @@
 [submodule "modules/contrib/feeds"]
 	path = modules/contrib/feeds
 	url = git://git.drupal.org/project/feeds
+[submodule "modules/contrib/views"]
+	path = modules/contrib/views
+	url = git://git.drupal.org/project/views
