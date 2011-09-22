@@ -160,6 +160,9 @@ form tbody th {
   clear: left;
 }
 
-#pdfbulletin-edit-form .cke_contents {
+#edit-email-wrapper .cke_contents,
+#edit-empty-text-wrapper .cke_contents,
+#edit-footer-wrapper .cke_contents,
+#edit-header-wrapper .cke_contents {
   height: 10em !important;
 }
