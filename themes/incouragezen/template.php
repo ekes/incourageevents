@@ -157,7 +157,7 @@ function incouragezen_preprocess_block(&$vars, $hook) {
  * Theme the HTML used to make the PDF.
  *
  * @todo add title.
- */
+ *
 function incouragezen_pdfbulletin_email_pdf($pdfbulletin, $html, $header, $footer) {
   $css = url(drupal_get_path('theme', 'incouragezen') . '/css/pdfbulletin.css', array('absolute' => true));
   $head = '
@@ -173,10 +173,10 @@ function incouragezen_pdfbulletin_email_pdf($pdfbulletin, $html, $header, $foote
   $body .= '<div class="pdfbulletin-footer">' . $footer . '</div>';
   return '<html>' . $head . $body . '</html>';
 }
-
+// */
 /**
  * Theme the HTML version of the e-mail.
- */
+ *
 function incouragezen_pdfbulletin_email_html($pdfbulletin, $html, $header, $footer) {
   $output = '<div class="pdfbulletin-intro">Please find the latest upcoming events document attached to this e-mail</div>';
   $output .= '<div class="pdfbulletin-header">' . $header . '</div>';
@@ -184,4 +184,4 @@ function incouragezen_pdfbulletin_email_html($pdfbulletin, $html, $header, $foot
   $output .= '<div class="pdfbulletin-footer">' . $footer . '</div>';
   return $output;
 }
-
+// */
