@@ -46,3 +46,21 @@
 [submodule "modules/contrib/jquery_ui"]
 	path = modules/contrib/jquery_ui
 	url = git://git.drupal.org/project/jquery_ui
+[submodule "modules/contrib/filefield"]
+	path = modules/contrib/filefield
+	url = git://git.drupal.org/project/filefield
+[submodule "modules/contrib/imagefield"]
+	path = modules/contrib/imagefield
+	url = git://git.drupal.org/project/imagefield
+[submodule "modules/contrib/imagecache"]
+	path = modules/contrib/imagecache
+	url = git://git.drupal.org/project/imagecache
+[submodule "modules/contrib/insert"]
+	path = modules/contrib/insert
+	url = git://git.drupal.org/project/insert
+[submodule "modules/contrib/image_resize_filter"]
+	path = modules/contrib/image_resize_filter
+	url = git://git.drupal.org/project/image_resize_filter
+[submodule "modules/contrib/imageapi"]
+	path = modules/contrib/imageapi
+	url = git://git.drupal.org/project/imageapi
