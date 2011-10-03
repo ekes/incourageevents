@@ -64,3 +64,6 @@
 [submodule "modules/contrib/imageapi"]
 	path = modules/contrib/imageapi
 	url = git://git.drupal.org/project/imageapi
+[submodule "modules/contrib/better_exposed_filters"]
+	path = modules/contrib/better_exposed_filters
+	url = git://git.drupal.org/project/better_exposed_filters
