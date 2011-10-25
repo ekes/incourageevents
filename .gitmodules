@@ -73,3 +73,6 @@
 [submodule "modules/contrib/audiofield"]
 	path = modules/contrib/audiofield
 	url = git://git.drupal.org/project/audiofield
+[submodule "modules/contrib/openlayers"]
+	path = modules/contrib/openlayers
+	url = git://git.drupal.org/project/openlayers
