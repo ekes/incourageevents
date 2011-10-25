@@ -67,3 +67,6 @@
 [submodule "modules/contrib/better_exposed_filters"]
 	path = modules/contrib/better_exposed_filters
 	url = git://git.drupal.org/project/better_exposed_filters
+[submodule "modules/contrib/features"]
+	path = modules/contrib/features
+	url = git://git.drupal.org/project/features
