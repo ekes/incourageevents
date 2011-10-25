@@ -79,3 +79,6 @@
 [submodule "modules/contrib/phone"]
 	path = modules/contrib/phone
 	url = git://git.drupal.org/project/phone
+[submodule "modules/contrib/strongarm"]
+	path = modules/contrib/strongarm
+	url = git://git.drupal.org/project/strongarm
