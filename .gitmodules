@@ -76,3 +76,6 @@
 [submodule "modules/contrib/openlayers"]
 	path = modules/contrib/openlayers
 	url = git://git.drupal.org/project/openlayers
+[submodule "modules/contrib/phone"]
+	path = modules/contrib/phone
+	url = git://git.drupal.org/project/phone
