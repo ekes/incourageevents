@@ -70,3 +70,6 @@
 [submodule "modules/contrib/features"]
 	path = modules/contrib/features
 	url = git://git.drupal.org/project/features
+[submodule "modules/contrib/audiofield"]
+	path = modules/contrib/audiofield
+	url = git://git.drupal.org/project/audiofield
