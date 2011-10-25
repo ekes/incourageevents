@@ -82,3 +82,9 @@
 [submodule "modules/contrib/strongarm"]
 	path = modules/contrib/strongarm
 	url = git://git.drupal.org/project/strongarm
+[submodule "modules/contrib/rules_geocoder"]
+	path = modules/contrib/rules_geocoder
+	url = git://git.drupal.org/project/rules_geocoder
+[submodule "modules/contrib/rules"]
+	path = modules/contrib/rules
+	url = git://git.drupal.org/project/rules
