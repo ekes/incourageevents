@@ -88,3 +88,6 @@
 [submodule "modules/contrib/rules"]
 	path = modules/contrib/rules
 	url = git://git.drupal.org/project/rules
+[submodule "modules/contrib/token"]
+	path = modules/contrib/token
+	url = git://git.drupal.org/project/token
