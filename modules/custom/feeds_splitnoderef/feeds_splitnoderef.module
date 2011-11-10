@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Mapper that exposes a node's taxonomy vocabularies as mapping targets.
+ */
+
+/**
+ * Implementation of hook_feeds_node_processor_targets_alter().
+ *
+ * @see FeedsNodeProcessor::getMappingTargets().
+ */
+function feeds_splitnoderef_feeds_node_processor_targets_alter(&$targets, $content_type) {
+  $info = content_types($content_type);
+  if (isset($info['fields']) && is_array($info['fields'])) {
+    foreach ($info['fields'] as $field_name => $field) {
+      if ($field['type'] == 'nodereference') {
+        $field_label = isset($field['widget']['label']) ? $field['widget']['label'] : $field_name;
+        $targets[$field_name . ':first'] = array(
+          'name' => t('@field_label (by title) - before @', array('@field_label' => $field_label)),
+          'callback' => 'feeds_splitnoderef_feeds_set_target',
+          'description' => t('The CCK node reference @field_label of the node, matched by node title.', array('@field_label' => $field_label)),
+          'real_target' => $field_name,
+        );
+        $targets[$field_name . ':last'] = array(
+          'name' => t('@field_label (by title) - after @', array('@field_label' => $field_label)),
+          'callback' => 'feeds_splitnoderef_feeds_set_target',
+          'description' => t('The CCK node reference @field_label of the node, matched by node title.', array('@field_label' => $field_label)),
+          'real_target' => $field_name,
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Callback for mapping. Here is where the actual mapping happens.
+ *
+ * @param $node
+ *   Reference to the node object we are working on.
+ *
+ * @param $key
+ *   A key as added to the $targets array by
+ *   taxonomy_feeds_node_processor_targets_alter().
+ *
+ * @param $terms
+ *   Given terms as array.
+ *
+ * Add the given terms to the node object so the taxonomy module can add them
+ * on node_save().
+ */
+function feeds_splitnoderef_feeds_set_target(&$node, $target, $value) {
+  // Determine whether we are matching against title, nid, URL, or GUID.
+  list($target, $match_key) = explode(':', $target, 2);
+
+  // Load field definition.
+  $field_info = content_fields($target, $node->type);
+
+  // Allow for multiple-value fields.
+  $value = is_array($value) ? $value : array($value);
+
+  // Allow importing to the same target with multiple mappers.
+  $field = isset($node->{$target}) ? $node->{$target} : array();
+
+  // Match values against nodes and add to field.
+  foreach ($value as $v) {
+    $nids = array();
+    $v = trim($v);
+
+    // Validate title.
+    if ((is_string($v) && $v !== '') || is_numeric($v)) {
+      $s = explode('@', $v);
+      if ($match_key == 'last' && ! empty($s[1])) {
+        $v = $s[1];
+      }
+      else {
+        $v = $s[0];
+      }
+      // Lookup potential exact matches for the value.
+      $nids = array_keys(_nodereference_potential_references($field_info, $v, 'equals', array()));
+    }
+
+    if (! empty($nids)) {
+      // Add the reference (ignoring duplicates).
+      foreach ($nids as $nid) {
+        $field[] = array('nid' => $nid);
+      }
+    }
+  }
+
+  $node->{$target} = $field;
+}

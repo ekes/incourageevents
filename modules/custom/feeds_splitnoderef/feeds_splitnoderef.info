@@ -1,0 +1,6 @@
+name = Feeds Mapper: Split node refrerence
+description = Custom mapper spliting reference string by @
+package = Feeds
+core = 6.x
+dependencies[] = feeds
+dependencies[] = nodereference

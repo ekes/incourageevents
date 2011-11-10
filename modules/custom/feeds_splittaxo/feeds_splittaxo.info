@@ -1,0 +1,6 @@
+name = Feeds Mapper: Split taxonomy term
+description = Custom mapper spliting term string by @
+package = Feeds
+core = 6.x
+dependencies[] = feeds
+dependencies[] = taxonomy

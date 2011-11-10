@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * Mapper that exposes a node's taxonomy vocabularies as mapping targets.
+ */
+
+module_load_include('inc', 'feeds', 'mappers/taxonomy');
+
+/**
+ * Implementation of hook_feeds_node_processor_targets_alter().
+ *
+ * @see FeedsNodeProcessor::getMappingTargets().
+ */
+function feeds_splittaxo_feeds_node_processor_targets_alter(&$targets, $content_type) {
+  foreach (taxonomy_get_vocabularies($content_type) as $vocabulary) {
+    $description = t('The @name vocabulary of the node. If this is a "Tags" vocabulary, any new terms will be created on import. Otherwise only existing terms will be used. If this is not a "Tags" vocabulary and not a "Multiple select" vocabulary, only the first available term will be created. See !settings.', array('@name' => $vocabulary->name, '!settings' => l(t('vocabulary settings'), 'admin/content/taxonomy/edit/vocabulary/'. $vocabulary->vid, array('query' => 'destination='. $_GET['q']))));
+
+    $targets['taxonomy:'. taxonomy_vocabulary_id($vocabulary) . ':first'] = array(
+      'name' => t('Taxonomy: @name - first part', array('@name' => $vocabulary->name)),
+      'callback' => 'feeds_splittaxo_feeds_set_target',
+      'description' => check_plain($description),
+      'real_target' => 'taxonomy',
+    );
+    $targets['taxonomy:'. taxonomy_vocabulary_id($vocabulary) . ':last'] = array(
+      'name' => t('Taxonomy: @name - last part', array('@name' => $vocabulary->name)),
+      'callback' => 'feeds_splittaxo_feeds_set_target',
+      'description' => check_plain($description),
+      'real_target' => 'taxonomy',
+    );
+  }
+}
+
+/**
+ * Callback for mapping. Here is where the actual mapping happens.
+ *
+ * @param $node
+ *   Reference to the node object we are working on.
+ *
+ * @param $key
+ *   A key as added to the $targets array by
+ *   taxonomy_feeds_node_processor_targets_alter().
+ *
+ * @param $terms
+ *   Given terms as array.
+ *
+ * Add the given terms to the node object so the taxonomy module can add them
+ * on node_save().
+ */
+function feeds_splittaxo_feeds_set_target(&$node, $key, $terms) {
+
+  // Return if there are no terms.
+  if (empty($terms)) {
+    return;
+  }
+
+  // Load target vocabulary to check, if it has the "tags" flag.
+  list(,$vocab_name,$part) = explode(':', $key);
+  $vocabulary = taxonomy_get_vocabulary($vocab_name);
+
+  // Cast a given single string to an array so we can use it.
+  if (!is_array($terms)) {
+    $terms = array($terms);
+  }
+
+  if ($vocabulary->tags) {
+    foreach ($terms as $k => $v) {
+      // Make sure there aren't any terms with a comma (=tag delimiter) in it.
+      $terms[$k] = preg_replace('/\s*,\s*/', ' ', $v);
+      // split by @ if there is one; and use it if mapping last.
+      $term = explode('@', $v);
+      if ($part == 'last' && ! empty($term[1])) {
+        $terms[$k] = $term[1];
+      }
+      else {
+        $terms[$k] = $term[0];
+      }
+    }
+    // Simply add a comma separated list to the node for a "tags" vocabulary.
+    $terms = array_merge($terms, drupal_explode_tags($node->taxonomy['tags'][$vocabulary->vid]));
+    $node->taxonomy['tags'][$vocabulary->vid] = implode(',', $terms);
+  }
+  else {
+    foreach ($terms as $term) {
+      if ($term instanceof FeedsTermElement) {
+        $node->taxonomy[$term->tid] = (object)$term;
+      }
+      // Check if a term already exists.
+      elseif ($terms_found = taxonomy_get_term_by_name_vid($term, $vocabulary->vid)) {
+        // If any terms are found add them to the node's taxonomy by found tid.
+        foreach ($terms_found AS $term_found) {
+          $node->taxonomy[$term_found->tid] = $term_found;
+          if (!$vocabulary->multiple) {
+            break;
+          }
+        }
+      }
+      // If the vocab is not for multiple tags break after the first hit.
+      if (!$vocabulary->multiple) {
+        break;
+      }
+    }
+  }
+}
