@@ -91,3 +91,15 @@
 [submodule "modules/contrib/token"]
 	path = modules/contrib/token
 	url = git://git.drupal.org/project/token
+[submodule "modules/contrib/panels"]
+	path = modules/contrib/panels
+	url = git://git.drupal.org/project/panels
+[submodule "modules/contrib/views_bonus"]
+	path = modules/contrib/views_bonus
+	url = git://git.drupal.org/project/views_bonus
+[submodule "modules/contrib/vertical_tabs"]
+	path = modules/contrib/vertical_tabs
+	url = git://git.drupal.org/project/vertical_tabs
+[submodule "modules/contrib/piwik"]
+	path = modules/contrib/piwik
+	url = git://git.drupal.org/project/piwik
