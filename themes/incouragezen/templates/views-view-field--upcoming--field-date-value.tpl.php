@@ -30,6 +30,7 @@
   * regardless of any changes in the aliasing that might happen if
   * the view is modified.
   */
+$output = $output . '.';
 
 // depending on view field settings the ical include is not loaded
 module_load_include('inc', 'date_api', 'date_api_ical');
@@ -75,7 +76,7 @@ if (! empty($rrule)) {
       date_timezone_set($datetime, timezone_open($timezone));
       $parts = array();
       $parts['year'] = date_format_date($datetime, 'custom', 'Y');
-      $parts['month'] = date_format_date($datetime, 'custom', 'M');
+      $parts['month'] = date_format_date($datetime, 'custom', 'n');
       $parts['day'] = date_format_date($datetime, 'custom', 'j');
       $parts['ordinal'] = date_format_date($datetime, 'custom', 'S');
       $parts['time'] = date_format_date($datetime, 'custom', 'g:ia');
@@ -83,27 +84,25 @@ if (! empty($rrule)) {
     }
     // first date in array is the event self, then cycle through other events...
     $lastdate = array_shift($dates);
+    $lastdate['month'] = '';
     foreach ($dates as $date) {
       // ... adding any changing parts; ie. if they are the same avoid repetition.
       $text = '';
-      if ($lastdate['month'] != $date['month']) {
-        // date_t is good for short strings like month abbrv
-        $text .= date_t($date['month'], 'month_abbr') . ' ';
-      }
-      if ($lastdate['day'] != $date['day']) {
-        // but doesn't cover st th nd 
-        $text .= $date['day'] . t($date['ordinal']) . ' ';
+      if ($lastdate['time'] != $date['time']) {
+        $text .= ' ' . t('at @date', array('@date' => $date['time']));
       }
       if ($lastdate['year'] != $date['year']) {
-        $text .= $date['year'] . ' ';
+        $text = '/' . $date['year'] . $text;
       }
-      if ($lastdate['time'] != $date['time']) {
-        $text .= $date['time'];
+      if ($lastdate['day'] != $date['day'] || $lastdate['month'] != $date['month']) {
+        // date_t is good for short strings like month abbrv
+        // $text .= date_t($date['month'], 'month_abbr') . ' ';
+        $text = $date['month'] . '/' . $date['day'] . $text;
       }
       $dates_text[] = trim($text);
       $lastdate = $date;
     }
-    $output .= ' <span class="repeat-dates">' . t('and also %dates', array('%dates' => implode(', ', $dates_text))) . '</span>'; 
+    $output .= ' <span class="repeat-dates">' . t('Also occurs on: %dates', array('%dates' => implode(', ', $dates_text))) . '.</span>'; 
   }
 }
 ?>
