@@ -109,3 +109,6 @@
 [submodule "modules/custom/views_daterelative"]
 	path = modules/custom/views_daterelative
 	url = git://git.iskra.net/drupal/custom/views_daterelative
+[submodule "modules/contrib/voipdrupal"]
+	path = modules/contrib/voipdrupal
+	url = git://git.drupal.org/project/voipdrupal
