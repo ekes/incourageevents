@@ -112,3 +112,9 @@
 [submodule "modules/contrib/voipdrupal"]
 	path = modules/contrib/voipdrupal
 	url = git://git.drupal.org/project/voipdrupal
+[submodule "modules/contrib/voipnode"]
+	path = modules/contrib/voipnode
+	url = git://github.com/ekes/voipnode
+[submodule "modules/contrib/voipextension"]
+	path = modules/contrib/voipextension
+	url = git://github.com/ekes/voipextension
