@@ -173,5 +173,26 @@ function incourage_events_strongarm() {
   );
   $export['node_options_event_feed'] = $strongarm;
 
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'voipnode_default_extension_status_event';
+  $strongarm->value = '1';
+  $export['voipnode_default_extension_status_event'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'voipnode_default_script_name_event';
+  $strongarm->value = 'incourage_event';
+  $export['voipnode_default_script_name_event'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'voipnode_use_event';
+  $strongarm->value = 1;
+  $export['voipnode_use_event'] = $strongarm;
+
   return $export;
 }
