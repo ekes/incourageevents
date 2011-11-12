@@ -1,0 +1,23 @@
+<?php
+
+include_once('incourage_events.features.inc');
+
+/**
+ * Implementation of hook_voipscript_load_script().
+ */
+function incourage_events_voipscript_load_script($script_name, $params = NULL) {
+  if ($script_name == 'incourage_event') {
+    module_load_include('inc', 'incourage_events', 'incourage_events.script');
+    $node = node_load($params['nid']);
+    return _incourage_events_event_script($node);
+  }
+}
+
+/**
+ * Implementation of hook_voipscript_get_script_names().
+ */
+function incourage_events_voipscript_get_script_names() {
+  return array(
+    'incourage_event',
+  );
+}
