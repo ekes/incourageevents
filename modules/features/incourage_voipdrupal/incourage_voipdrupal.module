@@ -1,0 +1,19 @@
+<?php
+
+include_once('incourage_voipdrupal.features.inc');
+
+function incourage_voipdrupal_voipscript_load_script($script_name, $params = NULL) {
+  if ($script_name == 'incourage_welcome') {
+    module_load_include('inc', 'incourage_voipdrupal', 'incourage_voipdrupal.script');
+    return _incourage_voipdrupal_welcome();
+  }
+}
+
+/**
+ * Implementation of hook_voipscript_get_script_names().
+ */
+function incourage_voipdrupal_voipscript_get_script_names() {
+  return array(
+    'incourage_welcome',
+  );
+} 
