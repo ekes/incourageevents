@@ -25,15 +25,20 @@
    * If there is a referenced location in the directory use that.
    */
   if (! empty($row->node_node_data_field_location_reference_nid)) {
+    $output = '';
+    if ($row->node_node_data_field_location_reference_nid != $row->node_node_data_field_organiser_reference_nid) {
+      $output .= t('Organized by') . ' ' . check_plain($row->node_node_data_field_organiser_reference_title) . '. '
+              . t('Location ');
+    }
     $address = array(
       check_plain($row->node_node_data_field_location_reference_title),
       check_plain($row->node_node_data_field_location_reference_node_data_field_address_street_field_address_street_value),
       check_plain($row->node_node_data_field_location_reference_node_data_field_address_street_field_address_city_value),
     );
-    $output = implode(', ', $address) . '. ';
+    $output .= implode(', ', $address) . '. ';
     if (! empty($row->node_node_data_field_location_reference_node_data_field_address_street_field_phone_text_value)) {
       $output .= 'Ph: ' . check_plain($row->node_node_data_field_location_reference_node_data_field_address_street_field_phone_text_value) . '. ';
     }
   }
 ?>
-<?php print $output; ?>
+ <?php print $output; ?>
