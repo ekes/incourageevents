@@ -17,18 +17,14 @@ function _incourage_events_event_script($node) {
   }
 
   if (!empty($node->field_location_reference[0]['nid'])) {
-    $location = node_load($node->field_organiser_reference[0]['nid']);
-    $phone = $location->field_phone_text[0]['value'];
-  }
-    
-  if ($greeting = voipnode_get_greeting($node)) {
-    $script->addSay($greeting);
+    $location_node = node_load($node->field_organiser_reference[0]['nid']);
+    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'];
+    $phone = $location_node->field_phone_text[0]['value'];
   }
   else {
-    $body = strip_tags($node->body);
-    $script->addSay($body);
+    $location = $node->field_location[0]['value'];
   }
-
+    
   $date_field = $node->field_date[0];
   $date_object = date_make_date($date_field['value'], $date_field['timezone_db']);
   $timezone = new DateTimeZone($date_field['timezone']);
@@ -49,6 +45,7 @@ function _incourage_events_event_script($node) {
   }
   else {
     $body = date_format_date($date_object, 'long') . '. ';
+    $body .= strip_tags($location);
     $body .= strip_tags($node->body);
     $script->addSay($body);
   }
@@ -57,7 +54,7 @@ function _incourage_events_event_script($node) {
   $script->addLabel('sms');
   $msg = strip_tags($node->title) . ' ';
   $msg .= date_format_date($date_object, 'short') . ' ';
-  $msg .= strip_tags($location->title) . ' ';
+  $msg .= strip_tags($location) . ' ';
   $script->addSendText($msg);
   $script->addSay(t('Message sent.'));
   $script->addGoto('options');
