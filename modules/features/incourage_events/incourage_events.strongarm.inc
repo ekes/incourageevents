@@ -157,6 +157,20 @@ function incourage_events_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_sms';
+  $strongarm->value = 'D, M j \\a\\t g:ia';
+  $export['date_format_sms'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_voip';
+  $strongarm->value = 'l, F jS \\a\\t g:i a';
+  $export['date_format_voip'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_event';
   $strongarm->value = array(
     0 => 'status',
