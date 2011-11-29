@@ -46,7 +46,7 @@ if (empty($timezone) || !date_timezone_is_valid($timezone)) {
 
 // first date to calculate repetitions from is the first date of the event.
 $first = $row->{$field->field_alias};
-// last date either...
+/* last date either...
 if (isset($view->pdfbulletin)) {
   // ...pdfbulletin schedule period added to first event date
   $start = $view->result[0]->{$field->field_alias};
@@ -54,10 +54,10 @@ if (isset($view->pdfbulletin)) {
   $start += $view->pdfbulletin->schedule['frequency'];
   $last = date_convert($start, DATE_UNIX, DATE_DATETIME);
 }
-else {
+else { */
   // ...or last event date
   $last = $view->result[count($view->result) - 1]->{$field->field_alias};
-}
+// }
 // repeat rule
 $rrule_field = $field->table_alias . '_' . $field->additional_fields['field_date_rrule'];
 $rrule = $row->{$field->table_alias . '_' . $field->additional_fields['field_date_rrule']};
