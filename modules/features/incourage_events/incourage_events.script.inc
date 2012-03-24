@@ -51,7 +51,8 @@ function _incourage_events_event_script($node) {
   else {
     $body = $title . '. ';
     $body .= strip_tags($node->body) . '. ';
-    $body .= 'Takes event happens on ' . date_format_date($date_object, 'voip') . ', '; 
+//    $body .= 'Takes event happens on ' . date_format_date($date_object, 'voip') . ', '; 
+    $body .= 'This event happens on ' . date_format_date($date_object, 'custom', variable_get('date_format_voip', 'Y-m-d')) . ', '; 
     $body .= 'at ' . strip_tags($location) . '. ';
     $script->addSay($body);
   }
@@ -111,8 +112,9 @@ function incourage_events_sms_parse($text, $number) {
           $date_object->setTimezone($timezone);
 
           list($location, $phone) = _incourage_events_script_location($node);
-          $msg = strip_tags($node->title) . ' ';
-          $msg .= date_format_date($date_object, 'sms') . ' ';
+          $msg = strip_tags($node->title) . '. ';
+          // $msg .= date_format_date($date_object, 'sms') . '. ';
+          $msg .= date_format_date($date_object, 'custom', variable_get('date_format_sms', 'Y-m-d')) . ', '; 
           $msg .= strip_tags($location);
           if ($phone) {
             $msg .= '. Ph# ' . $phone;
