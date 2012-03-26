@@ -26,3 +26,13 @@ function incourage_events_voipscript_get_script_names() {
     'incourage_event_sms',
   );
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function incourage_events_form_event_node_form_alter(&$form, &$form_state) {
+  if (empty($form['nid']['#value'])) {
+    $form['introduction-help']['#value'] = t('Enter your event here. If the location does not exist in the system yet <a href="@url">you can create a new location first</a>.', array('@url' => url('node/add/location')));
+    $form['introduction-help']['#weight'] = -20;
+  }
+}
