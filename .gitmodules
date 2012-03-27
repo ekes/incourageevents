@@ -121,3 +121,6 @@
 [submodule "modules/custom/notifications_date"]
 	path = modules/custom/notifications_date
 	url = git://github.com/ekes/notifications_date
+[submodule "modules/contrib/ds"]
+	path = modules/contrib/ds
+	url = git://git.drupal.org/project/ds
