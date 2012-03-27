@@ -10,7 +10,8 @@ base theme = omega
 
 ; ------- Declare default stylesheets
 
-;stylesheets[all][] = css/your_css_file.css
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/typography.css
 
 ; ------- Declare default javascript includes
 

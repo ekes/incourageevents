@@ -1,0 +1,74 @@
+/*
+ * General
+ *
+ */
+#page { 
+  background: url(../images/bg.gif) repeat center -3px; 
+}
+#site-header-wrapper {
+  width: 100%;
+  background: #ffffff;
+}
+#site-header {
+  /* height: 127px; */
+  padding-top: 26px;
+  margin-top: 0;
+}
+
+#site-name {
+  background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
+  display: block;
+  height: 91px;
+  left: 0;
+  text-indent: -9999em;
+  width: 240px; 
+}
+
+#main-content-container {
+  background: #ffffff;
+  margin-top: 0;
+  border-top: 30px solid #E2E2E2;
+  border-top-color: #4A3650;
+/*
+  Shadow from image above. We don't have.
+  background: url("../images/bg-page-content.jpg") no-repeat scroll 0 0 transparent;
+*/
+  padding: 35px 0;
+}
+
+#main-wrapper h1,
+#main-content {
+  padding: 0 10px;
+}
+
+#sidebar-first .block:first-child {
+  color: #ffffff;
+  background: #605270;
+}
+
+#sidebar-first .block {
+  color: #ffffff;
+  background: #CFD1D2;
+  padding: 15px 11px 13px;
+}
+
+blockquote { 
+  padding: 0 30px; 
+}
+q:before {
+  content: '\201C';
+}
+q:after {
+  content: '\201D';
+}
+blockquote cite { 
+  display: inline; margin-left: 5px; 
+}
+
+.view-upcoming .view-content .even,
+.view-upcoming .view-content .odd {
+  border-bottom: 1px solid #FFFFFF;
+  border-top: 1px solid #E2E2E2;
+  min-height: 170px;
+  position: relative;  
+}

@@ -1,0 +1,51 @@
+/*
+ * Type
+ *
+ */
+body { 
+  font: normal 400 13px/20px /*12px/18px*/ 'Open Sans', sans-serif; 
+  color: #656963; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-weight: 400; 
+}
+#page-title {
+  font-size: 45px;
+  font-weight: 300;
+  line-height: 50px;
+  margin-bottom: 10px;
+  border-color: #4A3650;
+  color: #B679B0;
+}
+
+.block h2 {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 25px;
+}
+
+.view-upcoming h2.title a,
+.view-upcoming h2.title a:link,
+.view-upcoming h2.title a:visited,
+.view-upcoming h2.title a:active,
+.view-upcoming h2.title a:hover,
+.view-upcoming h2.title {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 25px;
+  color: #605270;
+}
+
+em { 
+  font-style: italic; 
+}
+strong { 
+  color: #21b3b0; 
+  text-transform: uppercase; 
+  font-weight: 600; 
+}
+strong.alt { 
+  color: #c76520; 
+}
+

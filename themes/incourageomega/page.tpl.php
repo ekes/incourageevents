@@ -8,6 +8,7 @@
 <head>
   <title><?php print $head_title; ?></title>
   <?php print $head; ?>
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
@@ -15,31 +16,33 @@
 <body class="<?php print $body_classes; ?>">
   <?php if (!empty($admin)) print $admin; ?>
   <div id="page" class="clearfix">
-    <div id="site-header" class="container-<?php print $branding_wrapper_width; ?> clearfix">
-      <div id="branding" class="grid-<?php print $header_logo_width; ?>">
-        <?php if ($linked_logo_img): ?>
-          <?php print $linked_logo_img; ?>
-        <?php endif; ?>
-        <?php if ($linked_site_name): ?>
-          <?php if ($title): ?>
-            <h2 id="site-name" class=""><?php print $linked_site_name; ?></h2>
-          <?php else: ?>
-            <h1 id="site-name" class=""><?php print $linked_site_name; ?></h1>
+    <div id="site-header-wrapper">
+      <div id="site-header" class="container-<?php print $branding_wrapper_width; ?> clearfix">
+        <div id="branding" class="grid-<?php print $header_logo_width; ?>">
+          <?php if ($linked_logo_img): ?>
+            <?php print $linked_logo_img; ?>
           <?php endif; ?>
-        <?php endif; ?>
-      </div><!-- /#branding -->
+          <?php if ($linked_site_name): ?>
+            <?php if ($title): ?>
+              <h2 id="site-name" class=""><?php print $linked_site_name; ?></h2>
+            <?php else: ?>
+              <h1 id="site-name" class=""><?php print $linked_site_name; ?></h1>
+            <?php endif; ?>
+          <?php endif; ?>
+        </div><!-- /#branding -->
 
-      <?php if ($main_menu_links || $secondary_menu_links): ?>
-        <div id="site-menu" class="grid-<?php print $header_menu_width; ?>">
-        <?php if($main_menu_links): ?>
-          <div><?php print $main_menu_links; ?></div>
+        <?php if ($main_menu_links || $secondary_menu_links): ?>
+          <div id="site-menu" class="grid-<?php print $header_menu_width; ?>">
+          <?php if($main_menu_links): ?>
+            <div><?php print $main_menu_links; ?></div>
+          <?php endif; ?>
+          <?php if($secondary_menu_links): ?>
+            <div><?php print $secondary_menu_links; ?></div>
+          <?php endif; ?>
+          </div><!-- /#site-menu -->
         <?php endif; ?>
-        <?php if($secondary_menu_links): ?>
-          <div><?php print $secondary_menu_links; ?></div>
-        <?php endif; ?>
-        </div><!-- /#site-menu -->
-      <?php endif; ?>
-    </div><!-- /#site-header -->
+      </div><!-- /#site-header -->
+    </div><!-- /#site-header-wrapper -->
 
     <?php if($header_first || $header_last): ?>
     <div id="header-regions" class="container-<?php print $header_wrapper_width; ?> clearfix">
