@@ -2,7 +2,8 @@
  * Type
  *
  */
-body { 
+body,
+#slogan { 
   font: normal 400 13px/20px /*12px/18px*/ 'Open Sans', sans-serif; 
   color: #656963; 
 }
@@ -11,6 +12,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400; 
 }
 
+#slogan,
 #bcrumb .breadcrumb,
 #bcrumb a {
   color: #FFFFFF;
