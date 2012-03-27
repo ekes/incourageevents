@@ -24,11 +24,21 @@
   width: 240px; 
 }
 
+#internal-nav {
+  margin-top: 0;
+  height: 30px;
+  background-color: #4A3650;
+  color: #ffffff;
+}
+
+#internal-nav #bcrumb {
+  margin-bottom: 35px;
+  padding: 11px 20px;
+}
+
 #main-content-container {
   background: #ffffff;
   margin-top: 0;
-  border-top: 30px solid #E2E2E2;
-  border-top-color: #4A3650;
 /*
   Shadow from image above. We don't have.
   background: url("../images/bg-page-content.jpg") no-repeat scroll 0 0 transparent;
@@ -52,6 +62,24 @@
   padding: 15px 11px 13px;
 }
 
+#postscript-wrapper {
+  background: url("../images/bg-footer-gradient.png") repeat-x scroll 0 0 #DEDDD7;
+  margin-bottom: 0;
+  padding: 34px 0 28px 0;
+}
+
+#footer-wrapper {
+  color: #A0A3A6;
+  font-size: 9px;
+  line-height: 9px;
+  background: none repeat scroll 0 0 #65696E;
+  height: 49px;
+}
+
+#footer-last {
+  padding: 10px 15px;
+}
+
 blockquote { 
   padding: 0 30px; 
 }
@@ -71,4 +99,17 @@ blockquote cite {
   border-top: 1px solid #E2E2E2;
   min-height: 170px;
   position: relative;  
+  padding: 10px;
+}
+
+.view-upcoming .view-content h2.title,
+.view-upcoming .view-content div.date,
+.view-upcoming .view-content div.location {
+  width: 230px;
+  float: left;
+  clear: left;
+}
+
+.view-upcoming .view-content div.body {
+  margin-left: 250px;
 }

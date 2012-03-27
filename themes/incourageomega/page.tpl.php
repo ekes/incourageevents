@@ -59,7 +59,6 @@
     </div><!-- /#header-regions -->
     <?php endif; ?>
     
-    <?php if($site_slogan && $is_front || $search_box || $breadcrumb): ?>
     <div id="internal-nav" class="container-<?php print $internal_nav_wrapper_width; ?> clearfix">
       <div id="slogan-bcrumb" class="grid-<?php print $breadcrumb_slogan_width; ?>">
         <?php if ($site_slogan && $is_front): ?>
@@ -73,7 +72,6 @@
         <div id="search-box" class="grid-<?php print $search_width; ?>"><?php print $search_box; ?></div><!-- /#search-box -->
       <?php endif; ?>
     </div><!-- /#internal-nav -->
-    <?php endif; ?>
     
     <?php if($preface_first || $preface_middle || $preface_last): ?>
     <div id="preface-wrapper" class="container-<?php print $preface_wrapper_grids; ?> clearfix">

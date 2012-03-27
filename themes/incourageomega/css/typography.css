@@ -10,6 +10,24 @@ body {
 h1, h2, h3, h4, h5, h6 { 
   font-weight: 400; 
 }
+
+#bcrumb .breadcrumb,
+#bcrumb a {
+  color: #FFFFFF;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+#bcrumb a:link,
+#bcrumb a:visited,
+#bcrumb a:active {
+  text-decoration: none;
+}
+
+#bcrumb a:hover {
+  text-decoration: underline;
+}
+
 #page-title {
   font-size: 45px;
   font-weight: 300;
@@ -35,6 +53,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   line-height: 25px;
   color: #605270;
+}
+
+#postscript-wrapper {
+  font-size: 10px;
+  line-height: 13px;
+}
+
+#postscript-wrapper h2 {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#postscript-wrapper a {
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #65696E;
+  text-decoration: none;
 }
 
 em { 
