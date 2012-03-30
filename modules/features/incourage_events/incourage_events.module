@@ -3,6 +3,27 @@
 include_once('incourage_events.features.inc');
 
 /**
+ * Implements hook_block().
+ */
+function incourage_events_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      return array(
+        'create_block' => array(
+          'info' => 'Create content links',
+        ),
+      );
+    case 'view':
+      if ($delta == 'create_block') {
+        return array(
+          'subject' => t('Promote events'),
+          'content' => '<ul><li><a href="/node/add/location">Add a location</a></li><li><a href="/node/add/event">Submit an event</a></li></ul>',
+        );
+      }
+  }
+}
+
+/**
  * Implementation of hook_voipscript_load_script().
  */
 function incourage_events_voipscript_load_script($script_name, $params = NULL) {
