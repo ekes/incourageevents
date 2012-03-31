@@ -52,7 +52,8 @@
   padding: 0 10px;
 }
 
-#sidebar-first .block:first-child {
+#sidebar-first .block:first-child,
+#sidebar-first .block:first-child a {
   color: #ffffff;
   background: #605270;
 }
@@ -94,6 +95,8 @@ blockquote cite {
   display: inline; margin-left: 5px; 
 }
 
+.view-location-upcoming .view-content .even,
+.view-location-upcoming .view-content .odd,
 .view-upcoming .view-content .even,
 .view-upcoming .view-content .odd {
   border-bottom: 1px solid #FFFFFF;
@@ -103,6 +106,9 @@ blockquote cite {
   padding: 10px;
 }
 
+.view-location-upcoming .view-content h2.title,
+.view-location-upcoming .view-content div.date,
+.view-location-upcoming .view-content div.location,
 .view-upcoming .view-content h2.title,
 .view-upcoming .view-content div.date,
 .view-upcoming .view-content div.location {
@@ -111,6 +117,7 @@ blockquote cite {
   clear: left;
 }
 
+.view-location-upcoming .view-content div.body,
 .view-upcoming .view-content div.body {
   margin-left: 250px;
 }

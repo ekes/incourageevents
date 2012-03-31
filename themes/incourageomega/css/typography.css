@@ -39,12 +39,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #B679B0;
 }
 
+h2.pane-title,
 .block h2 {
   font-size: 21px;
   font-weight: 300;
   line-height: 25px;
 }
 
+.view-location-upcoming h2.title a,
+.view-location-upcoming h2.title a:link,
+.view-location-upcoming h2.title a:visited,
+.view-location-upcoming h2.title a:active,
+.view-location-upcoming h2.title a:hover,
+.view-location-upcoming h2.title,
 .view-upcoming h2.title a,
 .view-upcoming h2.title a:link,
 .view-upcoming h2.title a:visited,
