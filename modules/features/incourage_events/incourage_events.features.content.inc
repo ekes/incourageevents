@@ -6,6 +6,60 @@
 function incourage_events_content_default_fields() {
   $fields = array();
 
+  // Exported field: field_cost
+  $fields['event-field_cost'] = array(
+    'field_name' => 'field_cost',
+    'type_name' => 'event',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '1',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => 5,
+      'size' => '30',
+      'default_value' => array(
+        '0' => array(
+          'value' => 'Free',
+          '_error_element' => 'default_value_widget][field_cost][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Cost',
+      'weight' => '7',
+      'description' => 'Currency and amount; or \'Free\'.',
+      'type' => 'text_textfield',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_date
   $fields['event-field_date'] = array(
     'field_name' => 'field_date',
@@ -228,9 +282,9 @@ function incourage_events_content_default_fields() {
     ),
   );
 
-  // Exported field: field_voipnode_adesc
-  $fields['event-field_voipnode_adesc'] = array(
-    'field_name' => 'field_voipnode_adesc',
+  // Exported field: field_sms_text
+  $fields['event-field_sms_text'] = array(
+    'field_name' => 'field_sms_text',
     'type_name' => 'event',
     'display_settings' => array(
       'label' => array(
@@ -238,160 +292,57 @@ function incourage_events_content_default_fields() {
         'exclude' => 0,
       ),
       'teaser' => array(
-        'format' => 'audiofield_embedded',
+        'format' => 'default',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'audiofield_embedded',
+        'format' => 'default',
         'exclude' => 0,
       ),
       '4' => array(
-        'format' => 'audiofield_embedded',
+        'format' => 'default',
         'exclude' => 0,
       ),
       'token' => array(
-        'format' => 'audiofield_embedded',
+        'format' => 'default',
         'exclude' => 0,
       ),
     ),
     'widget_active' => '1',
-    'type' => 'filefield',
+    'type' => 'text',
     'required' => '0',
     'multiple' => '0',
-    'module' => 'filefield',
+    'module' => 'text',
     'active' => '1',
-    'list_field' => '0',
-    'list_default' => 1,
-    'description_field' => '0',
+    'text_processing' => '0',
+    'max_length' => '140',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
     'widget' => array(
-      'file_extensions' => 'mp3',
-      'file_path' => '',
-      'progress_indicator' => 'bar',
-      'max_filesize_per_file' => '',
-      'max_filesize_per_node' => '',
-      'phonerecorderfield_number' => NULL,
-      'phonerecorderfield_script' => NULL,
-      'phonerecorderfield_text' => NULL,
-      'label' => 'Audio Description',
-      'weight' => '9',
-      'description' => '',
-      'type' => 'audiofield_widget',
-      'module' => 'audiofield',
-    ),
-  );
-
-  // Exported field: field_voipnode_agreet
-  $fields['event-field_voipnode_agreet'] = array(
-    'field_name' => 'field_voipnode_agreet',
-    'type_name' => 'event',
-    'display_settings' => array(
-      'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+      'rows' => 5,
+      'size' => '140',
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_sms_text][0][value',
+        ),
       ),
-      'teaser' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'filefield',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'filefield',
-    'active' => '1',
-    'list_field' => '0',
-    'list_default' => 1,
-    'description_field' => '0',
-    'widget' => array(
-      'file_extensions' => 'mp3',
-      'file_path' => '',
-      'progress_indicator' => 'bar',
-      'max_filesize_per_file' => '',
-      'max_filesize_per_node' => '',
-      'phonerecorderfield_number' => NULL,
-      'phonerecorderfield_script' => NULL,
-      'phonerecorderfield_text' => NULL,
-      'label' => 'Audio Greeting',
-      'weight' => '10',
-      'description' => '',
-      'type' => 'audiofield_widget',
-      'module' => 'audiofield',
-    ),
-  );
-
-  // Exported field: field_voipnode_aname
-  $fields['event-field_voipnode_aname'] = array(
-    'field_name' => 'field_voipnode_aname',
-    'type_name' => 'event',
-    'display_settings' => array(
-      'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
-      ),
-      'teaser' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'audiofield_embedded',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'filefield',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'filefield',
-    'active' => '1',
-    'list_field' => '0',
-    'list_default' => 1,
-    'description_field' => '0',
-    'widget' => array(
-      'file_extensions' => 'mp3',
-      'file_path' => '',
-      'progress_indicator' => 'bar',
-      'max_filesize_per_file' => '',
-      'max_filesize_per_node' => '',
-      'phonerecorderfield_number' => NULL,
-      'phonerecorderfield_script' => NULL,
-      'phonerecorderfield_text' => NULL,
-      'label' => 'Audio Name',
-      'weight' => '8',
-      'description' => '',
-      'type' => 'audiofield_widget',
-      'module' => 'audiofield',
+      'default_value_php' => NULL,
+      'label' => 'SMS notification text',
+      'weight' => '5',
+      'description' => 'Optional alternative text to send in SMS notifications for the event.',
+      'type' => 'text_textfield',
+      'module' => 'text',
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Audio Description');
-  t('Audio Greeting');
-  t('Audio Name');
+  t('Cost');
   t('Date');
   t('Location text');
   t('Organizer');
+  t('SMS notification text');
   t('Venue');
 
   return $fields;

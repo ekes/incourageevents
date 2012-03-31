@@ -5,6 +5,7 @@
  */
 function incourage_directory_feeds_importer_default() {
   $export = array();
+
   $feeds_importer = new stdClass;
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
@@ -49,8 +50,23 @@ function incourage_directory_feeds_importer_default() {
             'unique' => FALSE,
           ),
           3 => array(
-            'source' => 'Combined address',
-            'target' => 'field_location',
+            'source' => 'Address',
+            'target' => 'field_address_street',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'City',
+            'target' => 'field_address_city',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Zip',
+            'target' => 'field_address_postcode',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Phone Number',
+            'target' => 'field_phone_text',
             'unique' => FALSE,
           ),
         ),
@@ -64,7 +80,7 @@ function incourage_directory_feeds_importer_default() {
     'expire_period' => 3600,
     'import_on_create' => TRUE,
   );
-
   $export['location_importer'] = $feeds_importer;
+
   return $export;
 }

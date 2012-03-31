@@ -6,19 +6,20 @@
 function incourage_directory_fieldgroup_default_groups() {
   $groups = array();
 
-  // Exported group: group_voipnode_settings
-  $groups['location-group_voipnode_settings'] = array(
+  // Exported group: group_address
+  $groups['location-group_address'] = array(
     'group_type' => 'standard',
     'type_name' => 'location',
-    'group_name' => 'group_voipnode_settings',
-    'label' => 'VoIP Extension Settings',
+    'group_name' => 'group_address',
+    'label' => 'Address',
     'settings' => array(
       'form' => array(
-        'style' => 'fieldset_collapsible',
+        'style' => 'fieldset',
         'description' => '',
       ),
       'display' => array(
         'description' => '',
+        'label' => 'above',
         'teaser' => array(
           'format' => 'fieldset',
           'exclude' => 0,
@@ -31,24 +32,19 @@ function incourage_directory_fieldgroup_default_groups() {
           'format' => 'fieldset',
           'exclude' => 0,
         ),
-        'token' => array(
-          'format' => 'fieldset',
-          'exclude' => 0,
-        ),
-        'label' => 'above',
       ),
     ),
     'weight' => '7',
     'fields' => array(
-      '0' => 'field_voipnode_aname',
-      '1' => 'field_voipnode_adesc',
-      '2' => 'field_voipnode_agreet',
+      '0' => 'field_address_street',
+      '1' => 'field_address_city',
+      '2' => 'field_address_postcode',
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('VoIP Extension Settings');
+  t('Address');
 
   return $groups;
 }

@@ -16,7 +16,8 @@ function incourage_directory_user_default_permissions() {
   $permissions['create location content'] = array(
     'name' => 'create location content',
     'roles' => array(
-      '0' => 'admin',
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
     ),
   );
 
@@ -24,7 +25,7 @@ function incourage_directory_user_default_permissions() {
   $permissions['delete any location content'] = array(
     'name' => 'delete any location content',
     'roles' => array(
-      '0' => 'admin',
+      '0' => 'bulletin administrator',
     ),
   );
 
@@ -32,7 +33,7 @@ function incourage_directory_user_default_permissions() {
   $permissions['delete own location content'] = array(
     'name' => 'delete own location content',
     'roles' => array(
-      '0' => 'admin',
+      '0' => 'bulletin administrator',
     ),
   );
 
@@ -40,7 +41,7 @@ function incourage_directory_user_default_permissions() {
   $permissions['edit any location content'] = array(
     'name' => 'edit any location content',
     'roles' => array(
-      '0' => 'admin',
+      '0' => 'bulletin administrator',
     ),
   );
 
@@ -48,7 +49,7 @@ function incourage_directory_user_default_permissions() {
   $permissions['edit own location content'] = array(
     'name' => 'edit own location content',
     'roles' => array(
-      '0' => 'admin',
+      '0' => 'authenticated user',
     ),
   );
 

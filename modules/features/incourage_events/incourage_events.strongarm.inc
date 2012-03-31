@@ -139,18 +139,18 @@ function incourage_events_strongarm() {
   $strongarm->value = array(
     'title' => '-1',
     'body_field' => '4',
-    'revision_information' => '11',
-    'author' => '9',
-    'options' => '13',
-    'comment_settings' => '14',
-    'menu' => '6',
+    'revision_information' => '14',
+    'author' => '12',
+    'options' => '16',
+    'comment_settings' => '17',
+    'menu' => '8',
     'taxonomy' => '3',
     'paper_size' => '1',
     'css_file' => '2',
-    'header' => '7',
-    'footer' => '8',
-    'email' => '10',
-    'empty_text' => '12',
+    'header' => '10',
+    'footer' => '11',
+    'email' => '13',
+    'empty_text' => '15',
   );
   $export['content_extra_weights_event'] = $strongarm;
 

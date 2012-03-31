@@ -819,6 +819,7 @@ function incourage_pdfbulletin_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('title', 'Taking part');
   $handler->override_option('items_per_page', 12);
   $handler->override_option('distinct', 1);
   $handler->override_option('style_plugin', 'semanticviews_default');
@@ -849,36 +850,25 @@ function incourage_pdfbulletin_views_default_views() {
         'class' => 'title',
       ),
       'field_date_value' => array(
-        'element_type' => 'span',
+        'element_type' => 'div',
         'class' => 'date',
       ),
-      'title_1' => array(
-        'element_type' => 'span',
-        'class' => 'location',
-      ),
-      'field_address_street_value' => array(
-        'element_type' => 'span',
-        'class' => 'location',
-      ),
-      'field_address_city_value' => array(
-        'element_type' => 'span',
-        'class' => 'location',
-      ),
-      'field_phone_text_value' => array(
-        'element_type' => 'span',
+      'field_location_value' => array(
+        'element_type' => 'div',
         'class' => 'location',
       ),
       'body' => array(
-        'element_type' => 'span',
+        'element_type' => 'div',
         'class' => 'body',
       ),
     ),
     'skip_blank' => 1,
   ));
+  $handler->override_option('exposed_block', TRUE);
   $handler = $view->new_display('page', 'Page: Events list', 'page_1');
   $handler->override_option('path', 'upcoming/list');
   $handler->override_option('menu', array(
-    'type' => 'default tab',
+    'type' => 'none',
     'title' => 'Events list',
     'description' => 'Simple upcoming events list',
     'weight' => '-10',
@@ -1457,7 +1447,7 @@ function incourage_pdfbulletin_views_default_views() {
   ));
   $handler->override_option('path', 'upcoming/byday');
   $handler->override_option('menu', array(
-    'type' => 'tab',
+    'type' => 'none',
     'title' => 'Grouped by day',
     'description' => 'Upcoming events grouped by start day',
     'weight' => '0',
@@ -1730,9 +1720,42 @@ function incourage_pdfbulletin_views_default_views() {
   $handler = $view->new_display('page', 'Page: Two column', 'page_3');
   $handler->override_option('style_plugin', 'panels_twocol');
   $handler->override_option('style_options', array());
+  $handler->override_option('row_options', array(
+    'semantic_html' => array(
+      'title' => array(
+        'element_type' => 'h2',
+        'class' => 'title',
+      ),
+      'field_date_value' => array(
+        'element_type' => 'span',
+        'class' => 'date',
+      ),
+      'title_1' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_address_street_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_address_city_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_phone_text_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'body' => array(
+        'element_type' => 'span',
+        'class' => 'body',
+      ),
+    ),
+    'skip_blank' => 1,
+  ));
   $handler->override_option('path', 'upcoming/twocol');
   $handler->override_option('menu', array(
-    'type' => 'tab',
+    'type' => 'none',
     'title' => 'Two column',
     'description' => 'Upcoming events in two columns',
     'weight' => '0',
@@ -1746,10 +1769,10 @@ function incourage_pdfbulletin_views_default_views() {
     'name' => 'navigation',
   ));
   $handler = $view->new_display('page', 'Page: With map attachment', 'page_4');
-  $handler->override_option('path', 'upcoming/map');
+  $handler->override_option('path', 'upcoming');
   $handler->override_option('menu', array(
-    'type' => 'tab',
-    'title' => 'List with map',
+    'type' => 'normal',
+    'title' => 'Upcoming',
     'description' => '',
     'weight' => '-5',
     'name' => 'navigation',
@@ -1840,39 +1863,6 @@ function incourage_pdfbulletin_views_default_views() {
         'button' => 'Override',
       ),
     ),
-    'title_1' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => '[title_1],',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 1,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'exclude' => 0,
-      'id' => 'title_1',
-      'table' => 'node',
-      'field' => 'title',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'field_location_reference_nid',
-    ),
     'field_address_street_value' => array(
       'label' => '',
       'alter' => array(
@@ -1911,6 +1901,39 @@ function incourage_pdfbulletin_views_default_views() {
       'field' => 'field_address_street_value',
       'override' => array(
         'button' => 'Override',
+      ),
+      'relationship' => 'field_location_reference_nid',
+    ),
+    'title_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '[title_1], [field_address_street_value]',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title_1',
+      'table' => 'node',
+      'field' => 'title',
+      'override' => array(
+        'button' => 'Use default',
       ),
       'relationship' => 'field_location_reference_nid',
     ),
@@ -1999,8 +2022,10 @@ function incourage_pdfbulletin_views_default_views() {
     'body' => array(
       'label' => '',
       'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
+        'alter_text' => 1,
+        'text' => '[field_date_value]
+
+[body]',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -2024,7 +2049,7 @@ function incourage_pdfbulletin_views_default_views() {
       'table' => 'node_revisions',
       'field' => 'body',
       'override' => array(
-        'button' => 'Override',
+        'button' => 'Use default',
       ),
       'relationship' => 'none',
     ),
@@ -2082,9 +2107,9 @@ function incourage_pdfbulletin_views_default_views() {
       'other_right' => 'title',
       'other_bottom' => 'title',
       'other_left' => 'title',
-      'name_field' => 'title_1',
+      'name_field' => 'title',
       'keep_orig_name_field' => 1,
-      'description_field' => 'field_address_street_value',
+      'description_field' => 'body',
       'keep_orig_desc_field' => 1,
     ),
   ));
@@ -2095,6 +2120,39 @@ function incourage_pdfbulletin_views_default_views() {
   $handler->override_option('style_plugin', 'openlayers_map');
   $handler->override_option('style_options', array(
     'preset' => 'upcoming_wrapids',
+  ));
+  $handler->override_option('row_options', array(
+    'semantic_html' => array(
+      'title' => array(
+        'element_type' => 'h2',
+        'class' => 'title',
+      ),
+      'field_date_value' => array(
+        'element_type' => 'span',
+        'class' => 'date',
+      ),
+      'title_1' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_address_street_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_address_city_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'field_phone_text_value' => array(
+        'element_type' => 'span',
+        'class' => 'location',
+      ),
+      'body' => array(
+        'element_type' => 'span',
+        'class' => 'body',
+      ),
+    ),
+    'skip_blank' => 1,
   ));
   $handler->override_option('attachment_position', 'before');
   $handler->override_option('inherit_arguments', TRUE);

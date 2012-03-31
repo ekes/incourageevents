@@ -38,7 +38,7 @@ function incourage_events_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '5',
+    'weight' => '6',
     'fields' => array(
       '0' => 'field_location_reference',
       '1' => 'field_organiser_reference',
@@ -78,11 +78,11 @@ function incourage_events_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '7',
+    'weight' => '9',
     'fields' => array(
-      '0' => 'field_voipnode_aname',
-      '1' => 'field_voipnode_adesc',
-      '2' => 'field_voipnode_agreet',
+      '0' => 'field_voipnode_adesc',
+      '1' => 'field_voipnode_agreet',
+      '2' => 'field_voipnode_aname',
     ),
   );
 

@@ -5,6 +5,7 @@
  */
 function incourage_directory_openlayers_presets() {
   $export = array();
+
   $openlayers_presets = new stdClass;
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
@@ -63,7 +64,7 @@ function incourage_directory_openlayers_presets() {
       'temporary' => 'default',
     ),
   );
-
   $export['locations_wrapids'] = $openlayers_presets;
+
   return $export;
 }
