@@ -11,6 +11,9 @@ function incourage_directory_ctools_plugin_api() {
   elseif ($module == "openlayers" && $api == "openlayers_presets") {
     return array("version" => 1);
   }
+  elseif ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => 1);
+  }
   elseif ($module == "strongarm" && $api == "strongarm") {
     return array("version" => 1);
   }
@@ -127,5 +130,14 @@ function incourage_directory_rules_defaults() {
         ),
       ),
     ),
+  );
+}
+
+/**
+ * Implementation of hook_views_api().
+ */
+function incourage_directory_views_api() {
+  return array(
+    'api' => '2',
   );
 }
