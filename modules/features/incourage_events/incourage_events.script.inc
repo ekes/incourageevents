@@ -59,12 +59,7 @@ function _incourage_events_event_script($node) {
   $script->addGoto('options');
 
   $script->addLabel('sms');
-  $msg = strip_tags($node->title) . '. ';
-  $msg .= date_format_date($date_object, 'sms') . '. ';
-  $msg .= strip_tags($location) . ' ';
-  if ($phone) {
-    $msg .= '. Ph# ' . $phone;
-  }
+  $msg = incourage_events_format_sms($node);
   $script->addSendText($msg);
   $script->addSay(t('Message sent.'));
   $script->addGoto('options');
@@ -106,19 +101,7 @@ function incourage_events_sms_parse($text, $number) {
         $node = node_load($extension['module_id']);
         // and it's an event, we aren't doing anything else yet.
         if ($node->type == 'event') {
-          $date_field = $node->field_date[0];
-          $date_object = date_make_date($date_field['value'], $date_field['timezone_db']);
-          $timezone = new DateTimeZone($date_field['timezone']);
-          $date_object->setTimezone($timezone);
-
-          list($location, $phone) = _incourage_events_script_location($node);
-          $msg = strip_tags($node->title) . '. ';
-          // $msg .= date_format_date($date_object, 'sms') . '. ';
-          $msg .= date_format_date($date_object, 'custom', variable_get('date_format_sms', 'Y-m-d')) . ', '; 
-          $msg .= strip_tags($location);
-          if ($phone) {
-            $msg .= '. Ph# ' . $phone;
-          }
+          $msg = incourage_events_format_sms($node); 
         }
       }
     }
@@ -134,19 +117,3 @@ function incourage_events_sms_parse($text, $number) {
   return $msg;
 }
 
-/**
- * Script helper function to return correct location information.
- */
-function _incourage_events_script_location($node) {
-  if (!empty($node->field_location_reference[0]['nid'])) {
-    $location_node = node_load($node->field_location_reference[0]['nid']);
-    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'];
-    $phone = $location_node->field_phone_text[0]['value'];
-  }
-  else {
-    $location = $node->field_location[0]['value'];
-    $phone = '';
-  }
- 
-  return array($location, $phone);
-}

@@ -57,3 +57,81 @@ function incourage_events_form_event_node_form_alter(&$form, &$form_state) {
     $form['introduction-help']['#weight'] = -20;
   }
 }
+
+/**
+ * Format SMS text for an event.
+ */
+function incourage_events_format_sms($node) {
+  if (! empty($node->sms_text[0]['value'])) {
+    $msg = $node->field_sms_text[0]['value'];
+  }
+  else {
+    $date_field = $node->field_date[0];
+    $date_object = date_make_date($date_field['value'], $date_field['timezone_db']);
+    $timezone = new DateTimeZone($date_field['timezone']);
+    $date_object->setTimezone($timezone);
+
+    list($location, $phone) = _incourage_events_location($node);
+    $msg = strip_tags($node->title) . '. ';
+    $msg .= date_format_date($date_object, 'custom', variable_get('date_format_sms', 'Y-m-d')) . ', '; 
+    $msg .= strip_tags($location);
+    if ($phone) {
+      $msg .= '. Ph# ' . $phone;
+    }
+    $msg .= $node->field_cost[0]['value'];
+  }
+
+  return $msg;
+}
+
+/**
+ * Helper function to return correct location information.
+ */
+function _incourage_events_location($node) {
+  if (!empty($node->field_location_reference[0]['nid'])) {
+    $location_node = node_load($node->field_location_reference[0]['nid']);
+    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'];
+    $phone = $location_node->field_phone_text[0]['value'];
+  }
+  else {
+    $location = $node->field_location[0]['value'];
+    $phone = '';
+  }
+ 
+  return array($location, $phone);
+}
+
+/**
+ * Nasty short cut for notifications text. We create
+ * a custom token to inclued all the logic we require
+ * for selecting what is in the SMS. token_logic would
+ * be the alternative if it was still about. Downside
+ * here is it is difficult for a site admin to change the
+ * text; but as it's custom anyway.
+ */
+
+/**
+ * Implements hook_token_list().
+ */
+function incourage_events_token_list($type = 'all') {
+  $tokens = array();
+
+  if ($type == 'node' || $type == 'all') {
+    $tokens['node']['incourage-events-sms'] = t("Custom event SMS content.");
+  }
+
+  return $tokens;
+}
+
+/**
+ * Implements hook_token_values().
+ */
+function incourage_events_token_values($type, $object = NULL, $options = array()) {
+  $values = array();
+
+  if ($type == 'node' && !empty($object) && $object->type == 'event') {
+    $values['incourage-events-sms'] = incourage_events_format_sms($object);
+  }
+
+  return $values;
+}
