@@ -1,3 +1,23 @@
 <?php
 
 include_once('incourage_directory.features.inc');
+
+/**
+ * Implementation of hook_voipscript_load_script().
+ */
+function incourage_directory_voipscript_load_script($script_name, $params = NULL) {
+  if ($script_name == 'incourage_location') {
+    module_load_include('inc', 'incourage_directory', 'incourage_directory.script');
+    $node = node_load($params['nid']);
+    return _incourage_directory_location_script($node);
+  }
+}
+
+/**
+ * Implementation of hook_voipscript_get_script_names().
+ */
+function incourage_directory_voipscript_get_script_names() {
+  return array(
+    'incourage_location',
+  );
+}
