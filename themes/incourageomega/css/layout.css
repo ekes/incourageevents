@@ -64,6 +64,17 @@
   padding: 15px 11px 13px;
 }
 
+#views-exposed-form-upcoming-page-1 .views-exposed-widget,
+#views-exposed-form-upcoming-page-1 .views-exposed-widget input.form-text {
+  width: 190px;
+}
+
+#views-exposed-form-upcoming-page-1 .form-checkboxes,
+#views-exposed-form-upcoming-page-1 .description {
+  margin: 0;
+  padding: 0;
+}
+
 #postscript-wrapper {
   background: url("../images/bg-footer-gradient.png") repeat-x scroll 0 0 #DEDDD7;
   margin-bottom: 0;
