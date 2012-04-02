@@ -132,3 +132,7 @@ blockquote cite {
 .view-upcoming .view-content div.body {
   margin-left: 250px;
 }
+
+.openlayers-views-map .olControlAttribution {
+  bottom: 0.1em;
+}
