@@ -124,3 +124,9 @@
 [submodule "modules/contrib/ds"]
 	path = modules/contrib/ds
 	url = git://git.drupal.org/project/ds
+[submodule "modules/contrib/notifications"]
+	path = modules/contrib/notifications
+	url = git://git.drupal.org/project/notifications
+[submodule "modules/contrib/messaging"]
+	path = modules/contrib/messaging
+	url = git://git.drupal.org/project/messaging
