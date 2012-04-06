@@ -14,7 +14,7 @@ function _incourage_voipdrupal_welcome() {
   $script->addGotoIf('no_input_received', "^%input_digits == ''");
   $script->addGotoIf('go_back', "^%input_digits == '*'");
   $script->addGosub('voipextension_play_extension', array('eid' => "%input_digits"));
-  $script->addGoto('request_extension');
+  $script->addGoto('extension_menu');
 
   $script->addLabel('no_input_received');
   $script->addSay('No input received. Please try again.');
