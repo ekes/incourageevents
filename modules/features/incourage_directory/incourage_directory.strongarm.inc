@@ -103,21 +103,21 @@ function incourage_directory_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'voipnode_default_extension_status_location';
-  $strongarm->value = '0';
+  $strongarm->value = '1';
   $export['voipnode_default_extension_status_location'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'voipnode_default_script_name_location';
-  $strongarm->value = 'incourage_event';
+  $strongarm->value = 'incourage_location';
   $export['voipnode_default_script_name_location'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'voipnode_use_location';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['voipnode_use_location'] = $strongarm;
 
   return $export;

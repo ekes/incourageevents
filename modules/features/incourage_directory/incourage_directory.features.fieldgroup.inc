@@ -42,9 +42,50 @@ function incourage_directory_fieldgroup_default_groups() {
     ),
   );
 
+  // Exported group: group_voipnode_settings
+  $groups['location-group_voipnode_settings'] = array(
+    'group_type' => 'standard',
+    'type_name' => 'location',
+    'group_name' => 'group_voipnode_settings',
+    'label' => 'VoIP Extension Settings',
+    'settings' => array(
+      'form' => array(
+        'style' => 'fieldset_collapsible',
+        'description' => '',
+      ),
+      'display' => array(
+        'description' => '',
+        'teaser' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '4' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'token' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'label' => 'above',
+      ),
+    ),
+    'weight' => '7',
+    'fields' => array(
+      '0' => 'field_voipnode_adesc',
+      '1' => 'field_voipnode_agreet',
+      '2' => 'field_voipnode_aname',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
+  t('VoIP Extension Settings');
 
   return $groups;
 }
