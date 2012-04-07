@@ -21,3 +21,35 @@ function incourage_directory_voipscript_get_script_names() {
     'incourage_location',
   );
 }
+
+/**
+ * Implements hook_block().
+ */
+function incourage_directory_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      return array(
+        'anon-post' => array(
+          'info' => t('Anonymous user posting note'),
+          'cache' => BLOCK_NO_CACHE, // far to simple
+        ),
+      );
+    case 'view':
+      // how much hard coded path info for one block:-
+      if ($delta == 'anon-post' && arg(0) == 'node' && arg(1) == 'add' && (arg(2) == 'event' || arg(2) == 'location')) {
+        global $user;
+        if ($user->uid == 0) {
+          $block = array(
+            'subject' => '',
+            'content' => t('If you <a href="/user/login">login</a> or <a href="/user/register">sign up</a> to What\'s Up before submitting a new %type. It will be possible for you to edit or delete that event at a later time and receive notifications from the system.', array('%type' => arg(2))),
+          );
+        }
+        if (isset($block)) {
+          return $block;
+        }
+        else {
+          return array('subject' => '', 'content' => '');
+        }
+      }
+  }
+}
