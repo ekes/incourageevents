@@ -6,12 +6,13 @@
   background: url(../images/bg.gif) repeat center -3px; 
 }
 #site-header-wrapper {
+  position: relative;
   width: 100%;
   background: #ffffff;
 }
 #site-header {
   /* height: 127px; */
-  padding-top: 26px;
+  padding-top: 60px;
   margin-top: 0;
 }
 
@@ -22,6 +23,21 @@
   left: 0;
   text-indent: -9999em;
   width: 240px; 
+}
+
+#util-menu {
+  position: absolute;
+  top: 0;
+  min-width: 960px;
+  width: 100%;
+  background: url("../images/bg-nav-utilities.png") repeat-x scroll 0 0 transparent;
+  height: 26px;
+}
+
+ul.secondary-menu {
+  float: right;
+  padding-right: 2em;
+  margin-top: 2px;
 }
 
 #internal-nav {

@@ -31,17 +31,17 @@
           <?php endif; ?>
         </div><!-- /#branding -->
 
-        <?php if ($main_menu_links || $secondary_menu_links): ?>
+        <?php if ($main_menu_links): ?>
           <div id="site-menu" class="grid-<?php print $header_menu_width; ?>">
           <?php if($main_menu_links): ?>
             <div><?php print $main_menu_links; ?></div>
           <?php endif; ?>
-          <?php if($secondary_menu_links): ?>
-            <div><?php print $secondary_menu_links; ?></div>
-          <?php endif; ?>
           </div><!-- /#site-menu -->
         <?php endif; ?>
       </div><!-- /#site-header -->
+      <?php if($secondary_menu_links): ?>
+        <div id="util-menu"><?php print $secondary_menu_links; ?></div>
+      <?php endif; ?>
     </div><!-- /#site-header-wrapper -->
 
     <?php if($header_first || $header_last): ?>

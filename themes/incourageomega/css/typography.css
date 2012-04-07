@@ -12,6 +12,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400; 
 }
 
+ul.secondary-menu a {
+  color: #E6E6E6;
+  text-decoration: none;
+}
+
 #slogan,
 #bcrumb .breadcrumb,
 #bcrumb a {
