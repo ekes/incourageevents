@@ -133,3 +133,6 @@
 [submodule "modules/patched/notifications_extra"]
 	path = modules/patched/notifications_extra
 	url = git://git.drupal.org/project/notifications_extra
+[submodule "modules/contrib/taxonomy_super_select"]
+	path = modules/contrib/taxonomy_super_select
+	url = git://git.drupal.org/project/taxonomy_super_select
