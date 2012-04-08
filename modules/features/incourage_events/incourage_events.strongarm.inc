@@ -143,7 +143,7 @@ function incourage_events_strongarm() {
     'author' => '12',
     'options' => '16',
     'comment_settings' => '17',
-    'menu' => '8',
+    'menu' => '9',
     'taxonomy' => '3',
     'paper_size' => '1',
     'css_file' => '2',

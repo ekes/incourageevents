@@ -38,7 +38,7 @@ function incourage_events_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '6',
+    'weight' => '5',
     'fields' => array(
       '0' => 'field_location_reference',
       '1' => 'field_organiser_reference',
@@ -78,7 +78,7 @@ function incourage_events_fieldgroup_default_groups() {
         'label' => 'above',
       ),
     ),
-    'weight' => '9',
+    'weight' => '6',
     'fields' => array(
       '0' => 'field_voipnode_adesc',
       '1' => 'field_voipnode_agreet',
