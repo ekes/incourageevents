@@ -53,3 +53,11 @@ function incourage_directory_block($op = 'list', $delta = 0, $edit = array()) {
       }
   }
 }
+
+/**
+ * Implements hook_form_FORMID_alter().
+ */
+function incourage_directory_form_location_node_form_alter(&$form, &$form_state) {
+  $form['title']['#description'] = t('The name people usually use to refer to this location.');
+  $form['body_field']['body']['#rows'] = 5;
+}
