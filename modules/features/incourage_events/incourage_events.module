@@ -56,6 +56,8 @@ function incourage_events_form_event_node_form_alter(&$form, &$form_state) {
     $form['introduction-help']['#value'] = t('Enter your event here. If the location does not exist in the system yet <a href="@url">you can create a new location first</a>.', array('@url' => url('node/add/location')));
     $form['introduction-help']['#weight'] = -20;
   }
+  $form['body_field']['body']['#rows'] = 5;
+  $form['body_field']['body']['#description'] = t('Provide a brief description of your event, including special instructions, if any. If it reoccurs, mention something like "Repeats every Wednesday and Thursday evening');
 }
 
 /**
