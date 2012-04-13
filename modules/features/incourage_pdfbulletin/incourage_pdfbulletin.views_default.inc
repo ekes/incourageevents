@@ -164,6 +164,17 @@ function incourage_pdfbulletin_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'voipnode' => array(
+      'label' => 'Extension',
+      'required' => 0,
+      'id' => 'voipnode',
+      'table' => 'node',
+      'field' => 'voipnode',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'field_location_reference_nid',
+    ),
   ));
   $handler->override_option('fields', array(
     'title' => array(
@@ -596,6 +607,44 @@ function incourage_pdfbulletin_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'eid' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 1,
+      'empty_zero' => 0,
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => '',
+      'prefix' => '715.421.8400 ext. ',
+      'suffix' => '',
+      'exclude' => 0,
+      'id' => 'eid',
+      'table' => 'voipextension',
+      'field' => 'eid',
+      'relationship' => 'voipnode',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
     'body' => array(
       'label' => '',
       'alter' => array(
@@ -720,7 +769,7 @@ function incourage_pdfbulletin_views_default_views() {
         'value' => '',
         'min' => '',
         'max' => '',
-        'default_date' => '+2 days',
+        'default_date' => 'now +2 days',
         'default_to_date' => '',
       ),
       'group' => '0',
@@ -740,7 +789,7 @@ function incourage_pdfbulletin_views_default_views() {
       'date_method' => 'OR',
       'granularity' => 'day',
       'form_type' => 'textfield',
-      'default_date' => '+2 days',
+      'default_date' => 'now +2 days',
       'default_to_date' => '',
       'year_range' => '-3:+3',
       'id' => 'daterelative_filter',
@@ -852,6 +901,10 @@ function incourage_pdfbulletin_views_default_views() {
       'field_date_value' => array(
         'element_type' => 'div',
         'class' => 'date',
+      ),
+      'eid' => array(
+        'element_type' => 'div',
+        'class' => 'extension',
       ),
       'field_location_value' => array(
         'element_type' => 'div',
