@@ -11,9 +11,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_cost',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => '7',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -65,21 +66,20 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_date',
     'type_name' => 'event',
     'display_settings' => array(
-      'weight' => '-3',
+      'weight' => 0,
       'parent' => '',
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
       'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -127,9 +127,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_location',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => '1',
+      'parent' => 'group_location',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -177,9 +178,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_location_reference',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => '-1',
+      'parent' => 'group_location',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -230,9 +232,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_organiser_reference',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_location',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -287,9 +290,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_sms_text',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => '8',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -341,9 +345,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_voipnode_adesc',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
@@ -393,9 +398,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_voipnode_agreet',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
@@ -445,9 +451,10 @@ function incourage_events_content_default_fields() {
     'field_name' => 'field_voipnode_aname',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
