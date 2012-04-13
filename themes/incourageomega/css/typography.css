@@ -73,6 +73,31 @@ h2.pane-title,
   color: #605270;
 }
 
+.node-type-event .pane-node-title h2,
+.node-type-event .pane-event-location-panel-pane-1 h2 {
+  display: inline;
+  font-size: 100%;
+  color: black;
+}
+
+.node-type-event .pane-node-title h2::after,
+.node-type-event .pane-event-location-panel-pane-1 h2::after {
+  content: ': ';
+}
+
+.node-type-event .pane-node-title div,
+.node-type-event .pane-event-location-panel-pane-1 div {
+  display: inline;
+}
+
+.node-type-event .pane-event-location-panel-pane-1 div.extension {
+  display: block;
+}
+
+.node-type-event .pane-node-body {
+  padding-top: 1em;
+}
+
 #postscript-wrapper {
   font-size: 10px;
   line-height: 13px;

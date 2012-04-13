@@ -136,8 +136,10 @@ blockquote cite {
 .view-location-upcoming .view-content h2.title,
 .view-location-upcoming .view-content div.date,
 .view-location-upcoming .view-content div.location,
+.view-location-upcoming .view-content div.extension,
 .view-upcoming .view-content h2.title,
 .view-upcoming .view-content div.date,
+.view-upcoming .view-content div.extension,
 .view-upcoming .view-content div.location {
   width: 230px;
   float: left;
