@@ -41,7 +41,7 @@ function incourage_directory_block($op = 'list', $delta = 0, $edit = array()) {
         if ($user->uid == 0) {
           $block = array(
             'subject' => '',
-            'content' => t('If you <a href="/user/login">login</a> or <a href="/user/register">sign up</a> to What\'s Up before submitting a new %type. It will be possible for you to edit or delete that event at a later time and receive notifications from the system.', array('%type' => arg(2))),
+            'content' => t('Please <a href="/user/register">sign up</a> to What\'s Up before submitting a new %type. That will make it possible for you to edit or delete that event at a later time and receive notifications from the system.', array('%type' => arg(2))),
           );
         }
         if (isset($block)) {
