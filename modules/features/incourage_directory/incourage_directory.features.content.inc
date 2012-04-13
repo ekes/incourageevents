@@ -249,9 +249,9 @@ function incourage_directory_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Phone',
+      'label' => 'Direct phone number',
       'weight' => '17',
-      'description' => '',
+      'description' => 'Phone number of the location, area code first. Example: (715) 234.5678.',
       'type' => 'text_textfield',
       'module' => 'text',
     ),
@@ -478,9 +478,9 @@ function incourage_directory_content_default_fields() {
   t('Audio Greeting');
   t('Audio Name');
   t('City');
+  t('Direct phone number');
   t('Map');
   t('Official name');
-  t('Phone');
   t('Street');
   t('Zip code');
 
