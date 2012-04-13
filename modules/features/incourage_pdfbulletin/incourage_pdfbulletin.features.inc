@@ -11,6 +11,13 @@ function incourage_pdfbulletin_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_rules_defaults().
+ */
+function incourage_pdfbulletin_rules_defaults() {
+  return array();
+}
+
+/**
  * Implementation of hook_views_api().
  */
 function incourage_pdfbulletin_views_api() {
