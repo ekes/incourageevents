@@ -173,7 +173,7 @@ function incourage_pdfbulletin_views_default_views() {
       'override' => array(
         'button' => 'Override',
       ),
-      'relationship' => 'field_location_reference_nid',
+      'relationship' => 'none',
     ),
   ));
   $handler->override_option('fields', array(
@@ -634,7 +634,7 @@ function incourage_pdfbulletin_views_default_views() {
       'precision' => 0,
       'decimal' => '.',
       'separator' => '',
-      'prefix' => '715.421.8400 ext. ',
+      'prefix' => '1 715-952-9020 ext. ',
       'suffix' => '',
       'exclude' => 0,
       'id' => 'eid',
