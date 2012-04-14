@@ -210,8 +210,7 @@ function incourage_events_views_default_views() {
     'nothing' => array(
       'label' => '',
       'alter' => array(
-        'text' => '<div class="location">[title], [field_address_street_value], [field_address_city_value], [field_address_postcode_value].</div>
-[eid]',
+        'text' => '<div class="location">[title], [field_address_street_value], [field_address_city_value], [field_address_postcode_value].</div>',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -235,6 +234,9 @@ function incourage_events_views_default_views() {
       'table' => 'views',
       'field' => 'nothing',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('arguments', array(
@@ -268,8 +270,8 @@ function incourage_events_views_default_views() {
       'default_argument_user' => 0,
       'default_argument_php' => '',
       'validate_argument_node_type' => array(
-        'location' => 'location',
         'pdfbulletin' => 0,
+        'location' => 0,
         'event' => 0,
         'event_feed' => 0,
       ),
@@ -282,6 +284,9 @@ function incourage_events_views_default_views() {
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('filters', array(
@@ -312,12 +317,123 @@ function incourage_events_views_default_views() {
   $handler->override_option('row_options', array(
     'skip_blank' => 0,
   ));
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Location address pane', 'panel_pane_1');
   $handler->override_option('pane_title', '');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
-    'name' => 'View panes',
-    'weight' => 0,
+    'name' => 'Event view panes',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Node: Nid',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'Event extension pane', 'panel_pane_2');
+  $handler->override_option('fields', array(
+    'eid' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '<h2>Event phone and text number</h2><div>[eid]</div>',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 1,
+      'empty_zero' => 0,
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => '',
+      'prefix' => '1 715-952-9020 ext.',
+      'suffix' => '',
+      'exclude' => 1,
+      'id' => 'eid',
+      'table' => 'voipextension',
+      'field' => 'eid',
+      'relationship' => 'voipnode',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'nothing' => array(
+      'label' => '',
+      'alter' => array(
+        'text' => '[eid]',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'exclude' => 0,
+      'id' => 'nothing',
+      'table' => 'views',
+      'field' => 'nothing',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('title', '');
+  $handler->override_option('row_options', array(
+    'semantic_html' => array(
+      'nothing' => array(
+        'element_type' => 'div',
+        'class' => '',
+      ),
+    ),
+    'skip_blank' => 0,
+  ));
+  $handler->override_option('pane_title', 'Event extension pane');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Event view panes',
+    'weight' => '0',
   ));
   $handler->override_option('allow', array(
     'use_pager' => FALSE,
