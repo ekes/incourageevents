@@ -54,3 +54,48 @@ function _incourage_directory_location_script($node) {
   $script->addLabel('return');
   return $script;
 }
+
+/**
+ * Voipscript callback: for sms msgs.
+ */
+function _incourage_directory_sms_script() {
+  $script = new VoipScript('voipscript_event_sms');
+$script->addLog('sms: %inbound_text_contents');
+  $script->addSet('request_result', '^incourage_directory_sms_parse(%inbound_text_contents, %caller_number)');
+  $script->addSendText("%request_result");
+  $script->addHangup('reset');
+  return $script;
+}
+
+/**
+ * Helper function, parse extension from sms, return msg.
+ */
+function incourage_directory_sms_parse($text, $number) {
+  $msg = '';
+  // super loose regex will just match the first number (multiple digits too)
+  // in the string.
+  if (preg_match('/[0-9]+/', $text, $matches)) {
+    $eid = $matches[0];
+    // if we have an extension
+    if ($extension = voipextension_load($eid)) {
+      // and it is a node, we aren't doing anything else yet.
+      if ($extension['module'] = 'voipnode') {
+        if ($extension['extension_type'] == 'event') {
+          $msg = incourage_events_sms_reply($extension);
+        }
+        elseif ($extension['extension_type'] == 'location') {
+          $msg = incourage_directory_sms_reply($extension);
+        }
+      }
+    }
+    // if no message we got an unknown number for extension
+    if ($msg == '') {
+      $msg = 'Incourage hot line. Invalid extension number provided.';
+    }
+  }
+  else {
+    $msg = 'To receive details about an event or location send an SMS with the extension number in it.';
+  }
+
+  return $msg;
+}

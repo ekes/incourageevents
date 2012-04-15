@@ -32,10 +32,6 @@ function incourage_events_voipscript_load_script($script_name, $params = NULL) {
     $node = node_load($params['nid']);
     return _incourage_events_event_script($node);
   }
-  if ($script_name == 'incourage_event_sms') {
-    module_load_include('inc', 'incourage_events', 'incourage_events.script');
-    return _incourage_events_sms_script();
-  }
 }
 
 /**
@@ -44,7 +40,6 @@ function incourage_events_voipscript_load_script($script_name, $params = NULL) {
 function incourage_events_voipscript_get_script_names() {
   return array(
     'incourage_event',
-    'incourage_event_sms',
   );
 }
 
@@ -58,6 +53,17 @@ function incourage_events_form_event_node_form_alter(&$form, &$form_state) {
   }
   $form['body_field']['body']['#rows'] = 5;
   $form['body_field']['body']['#description'] = t('Provide a brief description of your event, including special instructions, if any. If it reoccurs, mention something like "Repeats every Wednesday and Thursday evening');
+}
+
+/**
+ * Helper function return event extension sms msg.
+ */
+function incourage_events_sms_reply($extension) {
+  $msg = '';
+  $node = node_load($extension['module_id']);
+  $msg = incourage_events_format_sms($node); 
+
+  return $msg;
 }
 
 /**

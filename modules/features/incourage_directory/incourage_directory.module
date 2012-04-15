@@ -11,6 +11,10 @@ function incourage_directory_voipscript_load_script($script_name, $params = NULL
     $node = node_load($params['nid']);
     return _incourage_directory_location_script($node);
   }
+  if ($script_name == 'incourage_directory_sms') {
+    module_load_include('inc', 'incourage_events', 'incourage_events.script');
+    return _incourage_directory_sms_script();
+  }
 }
 
 /**
@@ -19,6 +23,7 @@ function incourage_directory_voipscript_load_script($script_name, $params = NULL
 function incourage_directory_voipscript_get_script_names() {
   return array(
     'incourage_location',
+    'incourage_directory_sms',
   );
 }
 
@@ -61,3 +66,37 @@ function incourage_directory_form_location_node_form_alter(&$form, &$form_state)
   $form['title']['#description'] = t('The name people usually use to refer to this location.');
   $form['body_field']['body']['#rows'] = 5;
 }
+
+/**
+ * Helper function return location extension sms msg.
+ */
+function incourage_directory_sms_reply($extension) {
+  $msg = '';
+  $node = node_load($extension['module_id']);
+  $msg = incourage_location_format_sms($node); 
+
+  return $msg;
+}
+
+/**
+ * Format SMS text for an location.
+ */
+function incourage_directory_format_sms($node) {
+  $msg = strip_tags($node->title) . ': ';
+  if ($node->title != $node->field_official_name[0]['value']) {
+    $msg .= strip_tags($node->field_official_name[0]['value']) . ', ';
+  }
+  if (! empty($node->field_address_street[0]['value'])) {
+    $msg .= strip_tags($node->field_address_street[0]['value']) . ',';
+  }
+  if (! empty($node->field_address_city[0]['value'])) {
+    $msg .= strip_tags($node->field_address_city[0]['value']) . ', ';
+  }
+  if (! empty($node->field_phone_text[0]['value'])) {
+    $msg .= strip_tags($node->field_phone_text[0]['value']);
+  }
+
+  return $msg;
+}
+
+
