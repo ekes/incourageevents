@@ -1,3 +1,22 @@
 <?php
 
 include_once('incourage_pdfbulletin.features.inc');
+
+/**
+ * Implements hook_voipscript_load_script().
+ */
+function incourage_pdfbulletin_voipscript_load_script($script_name, $params = NULL) {
+  if ($script_name == 'incourage_upcoming') {
+    module_load_include('inc', 'incourage_pdfbulletin', 'incourage_pdfbulletin.script');
+    return _incourage_upcoming_script();
+  }
+}
+
+/**
+ * Implements hook_voipscript_get_script_names().
+ */
+function incourage_pdfbulletin_voipscript_get_script_names() {
+  return array(
+    'incourage_upcoming',
+  );
+}
