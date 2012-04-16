@@ -12,7 +12,7 @@ function incourage_directory_voipscript_load_script($script_name, $params = NULL
     return _incourage_directory_location_script($node);
   }
   if ($script_name == 'incourage_directory_sms') {
-    module_load_include('inc', 'incourage_events', 'incourage_events.script');
+    module_load_include('inc', 'incourage_directory', 'incourage_directory.script');
     return _incourage_directory_sms_script();
   }
 }
@@ -73,7 +73,7 @@ function incourage_directory_form_location_node_form_alter(&$form, &$form_state)
 function incourage_directory_sms_reply($extension) {
   $msg = '';
   $node = node_load($extension['module_id']);
-  $msg = incourage_location_format_sms($node); 
+  $msg = incourage_directory_format_sms($node); 
 
   return $msg;
 }
