@@ -15,7 +15,7 @@ function _incourage_events_event_script($node) {
 
   if (!empty($node->field_location_reference[0]['nid'])) {
     $location_node = node_load($node->field_organiser_reference[0]['nid']);
-    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'];
+    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'] . ', ' . $location_node->field_address_city[0]['value'];
     $phone = $location_node->field_phone_text[0]['value'];
   }
   else {
@@ -34,15 +34,23 @@ function _incourage_events_event_script($node) {
   $script->addLabel('options');
   $script->addBeep();
   $script->addSay('Event menu: ');
+  $invalid_input_msg = t('Invalid input. Please try again.');
   if (empty($phone)) {
-    $script->addRunIvrMenu(t('For event details, dial 1. To receive an SMS of details, dial 2. To return to the previous menu press the # key.'), array(1 => 'details', 2=> 'sms', '#' => 'return'));
+    $script->addRunIvrMenu(
+      t('For event details, dial 1. To receive an SMS of details, dial 2. To return to the previous menu press the # key.'), 
+      array(1 => 'details', 2=> 'sms', '#' => 'return'),
+      $invalid_input_msg, NULL, 3
+    );
   }
   else {
-    $script->addRunIvrMenu(t('For event details, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. To return to the previous menu press the # key.'), array(1 => 'details', 2=> 'sms', 3 => 'contact', '#' => 'return'));
+    $script->addRunIvrMenu(
+      t('For event details, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. To return to the previous menu press the # key.'), 
+      array(1 => 'details', 2=> 'sms', 3 => 'contact', '#' => 'return'),
+      $invalid_input_msg, NULL, 3
+    );
   }
   $script->addGoto('%ivr_option_selected');
-  $script->addSay('Selection not recognized.');
-  $script->addGoto('options');
+  $script->addGoto('return');
 
   $script->addLabel('details');
   if ($greeting = voipnode_get_greeting($node)) {
