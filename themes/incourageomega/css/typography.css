@@ -75,16 +75,18 @@ h2.pane-title,
 
 .node-type-event .pane-node-title h2,
 .node-type-event .pane-field-cost h2,
+.node-type-event .pane-field-date h2,
 .node-type-event .pane-event-location-panel-pane-2 h2,
 .node-type-event .pane-event-location-panel-pane-1 h2 {
   display: inline;
   font-size: 100%;
-  font-weight: 300;
+  font-weight: bold;
   color: black;
 }
 
 .node-type-event .pane-node-title h2::after,
 .node-type-event .pane-field-cost h2::after,
+.node-type-event .pane-field-date h2::after,
 .node-type-event .pane-event-location-panel-pane-2 h2::after,
 .node-type-event .pane-event-location-panel-pane-1 h2::after {
   content: ': ';
@@ -92,6 +94,7 @@ h2.pane-title,
 
 .node-type-event .pane-node-title div,
 .node-type-event .pane-field-cost div,
+.node-type-event .pane-field-date div,
 .node-type-event .pane-event-location-panel-pane-2 div,
 .node-type-event .pane-event-location-panel-pane-1 div {
   display: inline;
