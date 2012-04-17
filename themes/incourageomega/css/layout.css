@@ -122,6 +122,11 @@ blockquote cite {
   display: inline; margin-left: 5px; 
 }
 
+.pane-location-upcoming-panel-pane-1 {
+  padding-top: 2em;
+  margin-top: 1em;
+}
+
 .view-location-upcoming .view-content .even,
 .view-location-upcoming .view-content .odd,
 .view-upcoming .view-content .even,
