@@ -86,7 +86,7 @@ function incourage_events_default_page_manager_handlers() {
       'label' => 'normal',
       'formatter' => 'default',
       'context' => 'argument_nid_1',
-      'override_title' => 1,
+      'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
