@@ -11,9 +11,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_address_city',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_address',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -61,9 +62,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_address_postcode',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_address',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -111,9 +113,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_address_street',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => '8',
+      'parent' => 'group_address',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -161,7 +164,7 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_official_name',
     'type_name' => 'location',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -212,16 +215,17 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_phone_text',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => '17',
+      'parent' => '',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       '4' => array(
@@ -262,17 +266,17 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_point',
     'type_name' => 'location',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '15',
       'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
       'teaser' => array(
-        'format' => 'openlayers_map_default_wrapids',
+        'format' => 'default',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'openlayers_map_default_wrapids',
+        'format' => 'default',
         'exclude' => 0,
       ),
       '4' => array(
@@ -321,9 +325,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_voipnode_adesc',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
@@ -373,9 +378,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_voipnode_agreet',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
@@ -425,9 +431,10 @@ function incourage_directory_content_default_fields() {
     'field_name' => 'field_voipnode_aname',
     'type_name' => 'location',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => 'group_voipnode_settings',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'audiofield_embedded',
