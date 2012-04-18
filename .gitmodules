@@ -7,9 +7,9 @@
 [submodule "modules/custom/dtr"]
 	path = modules/custom/dtr
 	url = git://git.iskra.net/drupal/custom/dtr
-[submodule "modules/contrib/date"]
-	path = modules/contrib/date
-	url = git://git.drupal.org/project/date
+[submodule "modules/patched/date"]
+	path = modules/patched/date
+	url = git://git.iskra.net/drupal/contrib/date
 [submodule "modules/contrib/feeds"]
 	path = modules/contrib/feeds
 	url = git://git.drupal.org/project/feeds
@@ -132,7 +132,7 @@
 	url = git://git.drupal.org/project/messaging
 [submodule "modules/patched/notifications_extra"]
 	path = modules/patched/notifications_extra
-	url = git://git.drupal.org/project/notifications_extra
+	url = git://git.iskra.net/drupal/contrib/notifications_extra
 [submodule "modules/contrib/taxonomy_super_select"]
 	path = modules/contrib/taxonomy_super_select
 	url = git://git.drupal.org/project/taxonomy_super_select
