@@ -136,3 +136,6 @@
 [submodule "modules/contrib/taxonomy_super_select"]
 	path = modules/contrib/taxonomy_super_select
 	url = git://git.drupal.org/project/taxonomy_super_select
+[submodule "modules/contrib/admin_menu"]
+	path = modules/contrib/admin_menu
+	url = git://git.drupal.org/project/admin_menu
