@@ -139,3 +139,6 @@
 [submodule "modules/contrib/admin_menu"]
 	path = modules/contrib/admin_menu
 	url = git://git.drupal.org/project/admin_menu
+[submodule "modules/contrib/voipviews"]
+	path = modules/contrib/voipviews
+	url = git://git.drupal.org/project/voipviews
