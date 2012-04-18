@@ -117,7 +117,7 @@
 	url = git://github.com/ekes/voipnode
 [submodule "modules/contrib/voipextension"]
 	path = modules/contrib/voipextension
-	url = git://github.com/ekes/voipextension
+	url = git://git.drupal.org/project/voipextension
 [submodule "modules/custom/notifications_date"]
 	path = modules/custom/notifications_date
 	url = git://github.com/ekes/notifications_date
