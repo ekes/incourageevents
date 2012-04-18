@@ -74,19 +74,11 @@ function incourage_events_format_sms($node) {
     $msg = $node->field_sms_text[0]['value'];
   }
   else {
-    $date_field = $node->field_date[0];
-    $date_object = date_make_date($date_field['value'], $date_field['timezone_db']);
-    $timezone = new DateTimeZone($date_field['timezone']);
-    $date_object->setTimezone($timezone);
-
     list($location, $phone) = _incourage_events_location($node);
-    $msg = strip_tags($node->title) . '. ';
-    $msg .= date_format_date($date_object, 'custom', variable_get('date_format_sms', 'Y-m-d')) . ', '; 
-    $msg .= strip_tags($location);
-    if ($phone) {
-      $msg .= '. Ph# ' . $phone;
-    }
     $msg .= $node->field_cost[0]['value'];
+    $msg = "[title-raw]. [field_cost-raw]. [field_date-next-type:sms]. $location Event ext. " . $node->voipextension_number;
+    $msg = token_replace_multiple($msg, array('global' => NULL, 'node' => $node));
+    $msg = strip_tags($msg);
   }
 
   return $msg;
@@ -98,7 +90,7 @@ function incourage_events_format_sms($node) {
 function _incourage_events_location($node) {
   if (!empty($node->field_location_reference[0]['nid'])) {
     $location_node = node_load($node->field_location_reference[0]['nid']);
-    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'];
+    $location = $location_node->title . ', ' . $location_node->field_address_street[0]['value'] . ', ' . $location_node->field_address_city[0]['value'] . '. ';
     $phone = $location_node->field_phone_text[0]['value'];
   }
   else {
