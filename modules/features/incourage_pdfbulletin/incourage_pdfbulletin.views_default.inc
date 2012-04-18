@@ -868,7 +868,10 @@ function incourage_pdfbulletin_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Incourage Events hotline: 715-952.9020');
+  $handler->override_option('title', 'Events hotline: 715-952.9020');
+  $handler->override_option('header', '<p>Find timely information about services and events that can help families and individuals during employment transition.</p>');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 12);
   $handler->override_option('distinct', 1);
   $handler->override_option('style_plugin', 'semanticviews_default');
@@ -2170,6 +2173,7 @@ function incourage_pdfbulletin_views_default_views() {
   $handler->override_option('row_options', array());
   $handler->override_option('displays', array());
   $handler = $view->new_display('attachment', 'Map attachment', 'attachment_1');
+  $handler->override_option('header', '');
   $handler->override_option('style_plugin', 'openlayers_map');
   $handler->override_option('style_options', array(
     'preset' => 'upcoming_wrapids',
@@ -2773,7 +2777,7 @@ function incourage_pdfbulletin_views_default_views() {
   ));
   $handler->override_option('row_plugin', 'voipviews_row_ivr');
   $handler->override_option('row_options', array(
-    'ivr_prompt_intro' => 'Press any key from the telephone keypad.',
+    'ivr_prompt_intro' => '',
     'ivr_invalid_msg' => 'Invalid option selected.',
     'ivr_no_input_msg' => 'Invalid option selected.',
     'ivr_max_attempts' => '3',
