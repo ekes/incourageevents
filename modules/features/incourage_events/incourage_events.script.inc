@@ -21,12 +21,7 @@ function _incourage_events_event_script($node) {
   else {
     $location = $node->field_location[0]['value'];
   }
-    
-  $date_field = $node->field_date[0];
-  $date_object = date_make_date($date_field['value'], $date_field['timezone_db']);
-  $timezone = new DateTimeZone($date_field['timezone']);
-  $date_object->setTimezone($timezone);
-  
+
   if ($title = voipnode_get_title($node)) {
     $script->addSay($title) . '. ';
   }
@@ -59,8 +54,9 @@ function _incourage_events_event_script($node) {
   else {
     $body = $title . '. ';
     $body .= strip_tags($node->body) . '. ';
-//    $body .= 'Takes event happens on ' . date_format_date($date_object, 'voip') . ', '; 
-    $body .= 'This event happens on ' . date_format_date($date_object, 'custom', variable_get('date_format_voip', 'Y-m-d')) . ', '; 
+    // To get the next date re-use the logic in date_token_repeat.
+    $date_text = 'This event happens on [field_date-next-type:monthdaytime]';
+    $body .= token_replace_multiple($date_text, array('global' => NULL, 'node' => $node));
     $body .= 'at ' . strip_tags($location) . '. ';
     $script->addSay($body);
   }
