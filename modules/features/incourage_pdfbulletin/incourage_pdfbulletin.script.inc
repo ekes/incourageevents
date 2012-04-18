@@ -38,8 +38,7 @@ function _incourage_upcoming_script() {
   $options['#'] = 'return';
   $prompt .= 'To go back to the main menu, press the pound key.';
 
-  $script->addRunIvrMenu($prompt, $options);
-  $script->addGoto('%ivr_option_selected');
+  $script->addRunIvrMenu($prompt, $options, t('Invalid input. Please try again.'), NULL, 3);
   // I would like to do an array_key_exists here, how to pass $options to
   // addGotoIf?
   foreach ($options as $key => $tid) {
@@ -48,7 +47,7 @@ function _incourage_upcoming_script() {
   }
   $script->addSet('tid', '');
   $script->addGoto('%ivr_option_selected');
-  $script->addGoto('begin');
+  $script->addGoto('return');
 
   $script->addLabel('upcoming_topic');
   $script->addSay('Upcoming events');
