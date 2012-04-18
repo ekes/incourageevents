@@ -10,19 +10,34 @@
   width: 100%;
   background: #ffffff;
 }
+
 #site-header {
   /* height: 127px; */
   padding-top: 60px;
   margin-top: 0;
 }
 
-#site-name {
+#site-name a.site-name {
   background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
   display: block;
   height: 91px;
   left: 0;
-  text-indent: -9999em;
   width: 240px; 
+}
+
+#site-description {
+  background: url("../images/whats-up-header.png") no-repeat scroll top right transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 91px;
+  width: 422px;
+}
+
+#site-description span.site-description,
+#site-name a span.site-name {
+  display: block;
+  text-indent: -9999px;
 }
 
 #util-menu {
@@ -107,6 +122,19 @@ ul.secondary-menu {
 
 #footer-last {
   padding: 10px 15px;
+}
+
+#footer-last div {
+  display: inline;
+}
+
+#footer-last .block-system-0 {
+  display: inline;
+  float: left;
+}
+
+#footer-last #footer-message {
+  color: white;
 }
 
 blockquote { 

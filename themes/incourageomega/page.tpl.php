@@ -24,9 +24,9 @@
           <?php endif; ?>
           <?php if ($linked_site_name): ?>
             <?php if ($title): ?>
-              <h2 id="site-name" class=""><?php print $linked_site_name; ?></h2>
+              <h2 id="site-name" class=""><a href="/" class="site-name"><span class="site-name">Incourage Community Foundation</span></a></h2><p id="site-description"><span class="site-description">What's up South Wood County</span></p>
             <?php else: ?>
-              <h1 id="site-name" class=""><?php print $linked_site_name; ?></h1>
+              <h1 id="site-name" class=""><a href="/" class="site-name"><span class="site-name">Incourage Community Foundation</span></a></h2><p id="site-description"><span class="site-description">What's up South Wood County</span></p>
             <?php endif; ?>
           <?php endif; ?>
         </div><!-- /#branding -->
