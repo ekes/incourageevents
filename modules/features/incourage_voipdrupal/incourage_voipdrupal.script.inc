@@ -21,7 +21,9 @@ function _incourage_voipdrupal_welcome() {
   $script->addGoto('extension_menu');
 
   $script->addLabel('no_input_received');
-  $script->addReturn();
+  // do some counting to prevent the eternal loop
+  $script->addGoto('extension_menu');
 
+  $script->addLabel('return');
   return $script;
 }
