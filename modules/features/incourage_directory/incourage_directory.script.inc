@@ -34,20 +34,16 @@ function _incourage_directory_location_script($node) {
   $script->addLog('prompt ' . $prompt);
   $script->addLog('options', print_r($options, true));
 
-  $script->addRunIvrMenu($prompt, $options);
+  $script->addRunIvrMenu($prompt, $options, t('Invalid input. Please try again.'), NULL, 3);
   $script->addGoto('%ivr_option_selected');
-
-  $script->addLabel('no_input_received');
-  $script->addLabel('invalid_option');
-  $script->addSay('Unknown option selected');
-  $script->addGoto('menu');
+  $script->addGoto('return');
 
   $script->addLabel('events');
   $script->addGosub('voipviews_read_view', array('view_name' => 'location_upcoming', 'display_id' => 'voipviews_1', 'args' => json_encode(array($node->nid))));
   $script->addGoto('menu');
 
   $script->addLabel('redirect');
-  $script->addSay(v('Transfering your call.'));
+  $script->addSay(t('Transfering your call.'));
   $script->addDial($phone);
   $script->addGoto('menu');
 
