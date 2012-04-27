@@ -161,7 +161,7 @@ blockquote cite {
 .view-upcoming .view-content .odd {
   border-bottom: 1px solid #FFFFFF;
   border-top: 1px solid #E2E2E2;
-  min-height: 170px;
+  min-height: 9em;
   position: relative;  
   padding: 10px;
 }
