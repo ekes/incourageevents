@@ -51,7 +51,7 @@ function _incourage_upcoming_script() {
 
   $script->addLabel('upcoming_topic');
   $script->addSay('Upcoming events');
-  $script->addGosub('voipviews_read_view', array('view_name' => 'upcoming', 'display_id' => 'voipviews_1', 'filters' => json_encode(array('tid' => '%tid'))));
+  $script->addGosub('voipviews_read_view', array('view_name' => 'upcoming', 'display_id' => 'voipviews_1', 'filter' => json_encode(array('filters' => array('tid' => array('%tid'))))));
   $script->addGoto('begin');
 
   $script->addLabel('no_input_received');
