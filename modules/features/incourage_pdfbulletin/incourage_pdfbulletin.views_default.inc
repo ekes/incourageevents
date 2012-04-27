@@ -2772,6 +2772,8 @@ or Text [eid] to 715.952.9020',
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('header', '');
+  $handler->override_option('header_format', 0);
   $handler->override_option('style_plugin', 'voipviews_list');
   $handler->override_option('style_options', array(
     'grouping' => '',

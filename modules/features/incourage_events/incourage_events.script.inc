@@ -26,28 +26,6 @@ function _incourage_events_event_script($node) {
     $script->addSay($title) . '. ';
   }
 
-  $script->addLabel('options');
-  $script->addBeep();
-  $script->addSay('Event menu: ');
-  $invalid_input_msg = t('Invalid input. Please try again.');
-  if (empty($phone)) {
-    $script->addRunIvrMenu(
-      t('For event details, dial 1. To receive an SMS of details, dial 2. To return to the previous menu press the # key.'), 
-      array(1 => 'details', 2=> 'sms', '#' => 'return'),
-      $invalid_input_msg, NULL, 3
-    );
-  }
-  else {
-    $script->addRunIvrMenu(
-      t('For event details, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. To return to the previous menu press the # key.'), 
-      array(1 => 'details', 2=> 'sms', 3 => 'contact', '#' => 'return'),
-      $invalid_input_msg, NULL, 3
-    );
-  }
-  $script->addGoto('%ivr_option_selected');
-  $script->addGoto('return');
-
-  $script->addLabel('details');
   if ($greeting = voipnode_get_greeting($node)) {
     $script->addSay($greeting);
   }
@@ -60,7 +38,27 @@ function _incourage_events_event_script($node) {
     $body .= 'at ' . strip_tags($location) . '. ';
     $script->addSay($body);
   }
-  $script->addGoto('options');
+
+  $script->addLabel('options');
+  $script->addBeep();
+  $script->addSay('Event menu: ');
+  $invalid_input_msg = t('Invalid input. Please try again.');
+  if (empty($phone)) {
+    $script->addRunIvrMenu(
+      t('To hear details again, dial 1. To receive an SMS of details, dial 2. To return to the previous menu press the # key.'), 
+      array(1 => 'introduction', 2=> 'sms', '#' => 'return'),
+      $invalid_input_msg, NULL, 3
+    );
+  }
+  else {
+    $script->addRunIvrMenu(
+      t('To hear details again, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. To return to the previous menu press the # key.'), 
+      array(1 => 'introduction', 2 => 'sms', 2 => 'contact', '#' => 'return'),
+      $invalid_input_msg, NULL, 3
+    );
+  }
+  $script->addGoto('%ivr_option_selected');
+  $script->addGoto('return');
 
   $script->addLabel('sms');
   $msg = incourage_events_format_sms($node);
