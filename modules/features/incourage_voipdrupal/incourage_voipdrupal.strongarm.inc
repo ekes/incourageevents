@@ -17,7 +17,7 @@ function incourage_voipdrupal_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'voipcall_inbound_call_script_name';
-  $strongarm->value = 'incourage_welcome';
+  $strongarm->value = 'incourage_upcoming';
   $export['voipcall_inbound_call_script_name'] = $strongarm;
 
   $strongarm = new stdClass;

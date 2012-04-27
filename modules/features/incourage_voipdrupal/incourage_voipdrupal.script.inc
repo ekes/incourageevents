@@ -1,13 +1,14 @@
 <?php
 
+/**
+ * Incourage extension menu.
+ */
 function _incourage_voipdrupal_welcome() {
   $script = new VoipScript('incourage_voipdrupal');
 
-  $script->addSay(t('Welcome to the incourage events hotline'));
-
   $script->addLabel('extension_menu');
 
-  $prompt = t('Please enter the desired extension number followed by the pound key. To learn about upcoming events, dial star.');
+  $prompt = t('Please enter the desired extension number followed by the pound key. To go back to the main menu, dial star.');
 
   $script->addLabel('request_extension');
   $script->addGetInput($prompt, 5, '#', 6);
@@ -16,14 +17,11 @@ function _incourage_voipdrupal_welcome() {
   $script->addGosub('voipextension_play_extension', array('eid' => "%input_digits"));
   $script->addGoto('extension_menu');
 
-  $script->addLabel('upcoming_events');
-  $script->addGosub('incourage_upcoming');
-  $script->addGoto('extension_menu');
-
   $script->addLabel('no_input_received');
   // do some counting to prevent the eternal loop
   $script->addGoto('extension_menu');
 
+  $script->addLabel('upcoming_events');
   $script->addLabel('return');
   return $script;
 }
