@@ -23,7 +23,7 @@ function _incourage_upcoming_script() {
     3 => 'health-related events',
     4 => 'events not included in any of the categories above',
   );
-  $options = array(
+  $topics = $options = array(
     1 => 1,
     2 => 2,
     3 => 5,
@@ -33,7 +33,7 @@ function _incourage_upcoming_script() {
   $prompt = '';
   foreach ($options as $option => $tid) {
     $description = $terms[$tid];
-    $prompt .= "For $description , Press $option";
+    $prompt .= "For $description , Press $option. ";
   }
   $options['#'] = 'return';
   $prompt .= 'To go back to the main menu, press the pound key.';
@@ -41,7 +41,7 @@ function _incourage_upcoming_script() {
   $script->addRunIvrMenu($prompt, $options, t('Invalid input. Please try again.'), NULL, 3);
   // I would like to do an array_key_exists here, how to pass $options to
   // addGotoIf?
-  foreach ($options as $key => $tid) {
+  foreach ($topics as $key => $tid) {
     $script->addSet('tid', $tid);
     $script->addGotoIf('upcoming_topic', "^%ivr_option_selected == $key");
   }
@@ -51,7 +51,7 @@ function _incourage_upcoming_script() {
 
   $script->addLabel('upcoming_topic');
   $script->addSay('Upcoming events');
-  $script->addGosub('voipviews_read_view', array('view_name' => 'upcoming', 'display_id' => 'voipviews_1', 'filter' => json_encode(array('filters' => array('tid' => '%tid')))));
+  $script->addGosub('voipviews_read_view', array('view_name' => 'upcoming', 'display_id' => 'voipviews_1', 'filters' => json_encode(array('tid' => '%tid'))));
   $script->addGoto('begin');
 
   $script->addLabel('no_input_received');
