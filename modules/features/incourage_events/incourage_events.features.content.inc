@@ -198,7 +198,7 @@ function incourage_events_content_default_fields() {
     ),
     'widget_active' => '1',
     'type' => 'nodereference',
-    'required' => '0',
+    'required' => '1',
     'multiple' => '0',
     'module' => 'nodereference',
     'active' => '1',

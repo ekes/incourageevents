@@ -610,8 +610,9 @@ function incourage_pdfbulletin_views_default_views() {
     'eid' => array(
       'label' => '',
       'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
+        'alter_text' => 1,
+        'text' => 'Call 715.952.9020 ext. [eid]<br />
+or Text [eid] to 715.952.9020',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -634,7 +635,7 @@ function incourage_pdfbulletin_views_default_views() {
       'precision' => 0,
       'decimal' => '.',
       'separator' => '',
-      'prefix' => '1 715-952-9020 ext. ',
+      'prefix' => '',
       'suffix' => '',
       'exclude' => 0,
       'id' => 'eid',
@@ -868,7 +869,7 @@ function incourage_pdfbulletin_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Events hotline: 715-952.9020');
+  $handler->override_option('title', 'Events hotline: 715.952.9020');
   $handler->override_option('header', '<p>Find timely information about services and events that can help families and individuals during employment transition.</p>');
   $handler->override_option('header_format', '2');
   $handler->override_option('header_empty', 0);
