@@ -142,7 +142,7 @@ function incourage_directory_views_default_views() {
       'style_options' => array(),
       'wildcard' => 'all',
       'wildcard_substitution' => 'All',
-      'title' => '',
+      'title' => '%1 upcoming',
       'breadcrumb' => '',
       'default_argument_type' => 'fixed',
       'default_argument' => '',
@@ -157,7 +157,6 @@ function incourage_directory_views_default_views() {
       'validate_user_roles' => array(
         '2' => 0,
         '3' => 0,
-        '5' => 0,
         '4' => 0,
       ),
       'relationship' => 'none',
@@ -180,9 +179,6 @@ function incourage_directory_views_default_views() {
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '',
-      'override' => array(
-        'button' => 'Override',
-      ),
     ),
   ));
   $handler->override_option('filters', array(
@@ -258,7 +254,6 @@ function incourage_directory_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Upcoming events');
   $handler->override_option('items_per_page', 20);
   $handler->override_option('style_plugin', 'semanticviews_default');
   $handler->override_option('style_options', array(

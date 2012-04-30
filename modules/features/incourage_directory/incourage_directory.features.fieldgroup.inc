@@ -35,7 +35,7 @@ function incourage_directory_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '7',
+    'weight' => '8',
     'fields' => array(
       '0' => 'field_address_street',
       '1' => 'field_address_city',
@@ -76,7 +76,7 @@ function incourage_directory_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '7',
+    'weight' => '9',
     'fields' => array(
       '0' => 'field_voipnode_adesc',
       '1' => 'field_voipnode_agreet',
