@@ -35,7 +35,7 @@ function _incourage_upcoming_script() {
   $prompt = '';
   foreach ($options as $option => $tid) {
     $description = $terms[$tid];
-    $prompt .= "To listen to $description , Press $option. ";
+    $prompt .= "For $description , Press $option. ";
   }
   $options['*'] = 'extension_menu';
   $prompt .= 'To go to a specific extension number, dial the star key.';
