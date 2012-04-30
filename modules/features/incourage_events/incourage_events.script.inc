@@ -30,7 +30,6 @@ function _incourage_events_event_script($node) {
     $script->addSay($greeting);
   }
   else {
-    $body = $title . '. ';
     $body .= strip_tags($node->body) . '. ';
     // To get the next date re-use the logic in date_token_repeat.
     $date_text = 'This event happens on [field_date-next-type:monthdaytime]';
@@ -71,6 +70,8 @@ function _incourage_events_event_script($node) {
   $script->addDial($phone);
   $script->addGoto('options');
 
+  $script->addLabel('no_input_received');
+  $script->addSay('No input recognised. Returning to previous menu');
   $script->addLabel('return');
   return $script;
 }

@@ -57,7 +57,7 @@ function _incourage_upcoming_script() {
   $script->addGoto('begin');
 
   $script->addLabel('extension_menu');
-  $script->addGoto('incourage_extensions');
+  $script->addGosub('incourage_extensions');
   $script->addGoto('begin');
 
   $script->addLabel('no_input_received');

@@ -7,6 +7,11 @@ function incourage_voipdrupal_voipscript_load_script($script_name, $params = NUL
     module_load_include('inc', 'incourage_voipdrupal', 'incourage_voipdrupal.script');
     return _incourage_voipdrupal_welcome();
   }
+  if ($script_name == 'incourage_play_extension') {
+    // silent version of get_play_extension.
+    module_load_include('inc', 'incourage_voipdrupal', 'incourage_voipdrupal.script');
+    return _incourage_voipdrupal_play_extension_script($params['eid'], $params);
+  }
 }
 
 /**
@@ -15,5 +20,6 @@ function incourage_voipdrupal_voipscript_load_script($script_name, $params = NUL
 function incourage_voipdrupal_voipscript_get_script_names() {
   return array(
     'incourage_extensions',
+    'incourage_play_extension',
   );
 } 
