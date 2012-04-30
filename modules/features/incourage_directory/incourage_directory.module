@@ -92,9 +92,7 @@ function incourage_directory_format_sms($node) {
   if (! empty($node->field_address_city[0]['value'])) {
     $msg .= strip_tags($node->field_address_city[0]['value']) . ', ';
   }
-  if (! empty($node->field_phone_text[0]['value'])) {
-    $msg .= strip_tags($node->field_phone_text[0]['value']);
-  }
+  $msg .= " 715.952.9020 ext. " . $node->voipextension_number; 
 
   return $msg;
 }

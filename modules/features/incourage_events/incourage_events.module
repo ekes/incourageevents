@@ -69,6 +69,8 @@ function incourage_events_sms_reply($extension) {
 
 /**
  * Format SMS text for an event.
+ *
+ * @todo get the phone number from the variables?
  */
 function incourage_events_format_sms($node) {
   if (! empty($node->sms_text[0]['value'])) {
@@ -77,7 +79,7 @@ function incourage_events_format_sms($node) {
   else {
     list($location, $phone) = _incourage_events_location($node);
     $msg .= $node->field_cost[0]['value'];
-    $msg = "[title-raw]. [field_cost-raw]. [field_date-next-type:sms]. $location Event ext. " . $node->voipextension_number;
+    $msg = "[title-raw]. [field_cost-raw]. [field_date-next-type:sms]. $location 715.952.9020 ext. " . $node->voipextension_number;
     $msg = token_replace_multiple($msg, array('global' => NULL, 'node' => $node));
     $msg = strip_tags($msg);
   }

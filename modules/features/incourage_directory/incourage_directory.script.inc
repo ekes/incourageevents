@@ -86,7 +86,7 @@ function incourage_directory_sms_parse($text, $number) {
     }
     // if no message we got an unknown number for extension
     if ($msg == '') {
-      $msg = 'Incourage hot line. Invalid extension number provided.';
+      $msg = 'Incourage Events hotline. Invalid extension provided.';
     }
   }
   else {
