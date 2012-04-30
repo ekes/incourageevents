@@ -63,7 +63,7 @@
   <?php print $content ?>
 
   <?php if ($extension): ?>
-  <div class="extension"><span style="label">Encourage events number:</span>715.421.8400 extension <?php print $extension; ?></div>
+  <div class="extension"><span style="label">Encourage events number:</span>715.952.9020 extension <?php print $extension; ?></div>
   <?php endif; ?>
   <?php if ($terms):?>
   <div class="taxonomy"><?php print $terms; ?></div>
