@@ -142,3 +142,6 @@
 [submodule "modules/contrib/voipviews"]
 	path = modules/contrib/voipviews
 	url = git://git.drupal.org/project/voipviews
+[submodule "modules/contrib/simplenews"]
+	path = modules/contrib/simplenews
+	url = git://git.drupal.org/project/simplenews
