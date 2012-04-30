@@ -764,23 +764,23 @@ or Text [eid] to 715.952.9020',
       ),
       'relationship' => 'none',
     ),
-    'daterelative_filter' => array(
+    'date_filter' => array(
       'operator' => '>=',
       'value' => array(
-        'value' => '',
-        'min' => '',
-        'max' => '',
-        'default_date' => 'now +2 days',
+        'min' => NULL,
+        'max' => NULL,
+        'value' => NULL,
+        'default_date' => '',
         'default_to_date' => '',
       ),
       'group' => '0',
       'exposed' => TRUE,
       'expose' => array(
+        'operator' => 'date_filter_op',
+        'label' => 'From date',
         'use_operator' => 0,
-        'operator' => 'daterelative_filter_op',
-        'identifier' => 'daterelative_filter',
-        'label' => 'Date is greater than or equal to',
-        'bef_filter_description' => 'Can be an absolute date; or a relative date like "+2 days", "+1 month".',
+        'identifier' => 'date_filter',
+        'bef_filter_description' => '',
         'optional' => 1,
         'remember' => 0,
       ),
@@ -789,16 +789,13 @@ or Text [eid] to 715.952.9020',
       ),
       'date_method' => 'OR',
       'granularity' => 'day',
-      'form_type' => 'textfield',
-      'default_date' => 'now +2 days',
+      'form_type' => 'date_select',
+      'default_date' => '',
       'default_to_date' => '',
-      'year_range' => '-3:+3',
-      'id' => 'daterelative_filter',
+      'year_range' => '-1:+3',
+      'id' => 'date_filter',
       'table' => 'node',
-      'field' => 'daterelative_filter',
-      'override' => array(
-        'button' => 'Override',
-      ),
+      'field' => 'date_filter',
       'relationship' => 'none',
     ),
     'tid' => array(
@@ -870,6 +867,8 @@ or Text [eid] to 715.952.9020',
     'type' => 'none',
   ));
   $handler->override_option('title', 'Events hotline: 715.952.9020');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 12);
   $handler->override_option('distinct', 1);
   $handler->override_option('style_plugin', 'semanticviews_default');
@@ -920,8 +919,6 @@ or Text [eid] to 715.952.9020',
   ));
   $handler->override_option('exposed_block', TRUE);
   $handler = $view->new_display('page', 'Page: Events list', 'page_1');
-  $handler->override_option('header_format', '2');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('path', 'upcoming/list');
   $handler->override_option('menu', array(
     'type' => 'none',
@@ -2176,8 +2173,6 @@ or Text [eid] to 715.952.9020',
   $handler->override_option('header', '<p style="font-size: 1.5em; font-weight: bold">Services and opportunities for those in employment transition</p>
 <p style="margin-top: 0.4em; margin-bottom: 0.9em;">What’s Up is made possible by: MIT’s Center for Civic Media and the John S. and James L. Knight
 Foundation to test new ways of delivering information to increase access for all.</p>');
-  $handler->override_option('header_format', '2');
-  $handler->override_option('header_empty', 0);
   $handler->override_option('style_plugin', 'openlayers_map');
   $handler->override_option('style_options', array(
     'preset' => 'upcoming_wrapids',
@@ -2701,8 +2696,8 @@ Foundation to test new ways of delivering information to increase access for all
       ),
     ),
     'gosub' => array(
-      'gosub_script' => 'voipextension_play_extension',
-      'gosub_params' => '{"eid":[eid]}',
+      'gosub_script' => 'incourage_play_extension',
+      'gosub_params' => '{"eid":[eid],"caller":"view_upcoming"}',
       'exclude' => '',
       'id' => 'gosub',
       'table' => 'voipviews',
@@ -2775,13 +2770,14 @@ Foundation to test new ways of delivering information to increase access for all
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('header_format', 0);
   $handler->override_option('style_plugin', 'voipviews_list');
   $handler->override_option('style_options', array(
     'grouping' => '',
   ));
   $handler->override_option('row_plugin', 'voipviews_row_ivr');
   $handler->override_option('row_options', array(
-    'ivr_prompt_intro' => 'Press any key from the telephone keypad.',
+    'ivr_prompt_intro' => '',
     'ivr_invalid_msg' => 'Invalid option selected.',
     'ivr_no_input_msg' => 'Invalid option selected.',
     'ivr_max_attempts' => '3',
