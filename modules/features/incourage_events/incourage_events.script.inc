@@ -8,7 +8,7 @@
 /**
  * Basic default script to read voipnode contents
  */
-function _incourage_events_event_script($node) {
+function _incourage_events_event_script($node, $caller = '') {
   $script = new VoipScript('incourage_event');
 
   $script->addLabel('introduction');
@@ -38,21 +38,28 @@ function _incourage_events_event_script($node) {
     $script->addSay($body);
   }
 
+  if ($caller == 'view_upcoming') {
+    $return_string = 'To go to the next event';
+  }
+  else {
+    $return_string = 'To return to the previous menu';
+  }
+
   $script->addLabel('options');
   $script->addBeep();
   $script->addSay('Event menu: ');
   $invalid_input_msg = t('Invalid input. Please try again.');
   if (empty($phone)) {
     $script->addRunIvrMenu(
-      t('To hear details again, dial 1. To receive an SMS of details, dial 2. To return to the previous menu press the # key.'), 
+      t('To hear details again, dial 1. To receive an SMS of details, dial 2. ' . $return_string . ' press the # key.'),
       array(1 => 'introduction', 2=> 'sms', '#' => 'return'),
       $invalid_input_msg, NULL, 3
     );
   }
   else {
     $script->addRunIvrMenu(
-      t('To hear details again, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. To return to the previous menu press the # key.'), 
-      array(1 => 'introduction', 2 => 'sms', 2 => 'contact', '#' => 'return'),
+      t('To hear details again, dial 1. To receive an SMS of details, dial 2. To contact the organizers dial 3. ' . $return_string . ' press the # key.'), 
+      array(1 => 'introduction', 2 => 'sms', 3 => 'contact', '#' => 'return'),
       $invalid_input_msg, NULL, 3
     );
   }
