@@ -20,3 +20,14 @@ function incourage_pdfbulletin_voipscript_get_script_names() {
     'incourage_upcoming',
   );
 }
+
+/**
+ * Implements hook_form_type_id_alter().
+ *
+ * Change exposed views date filter to US date format.
+ */
+function incourage_pdfbulletin_form_views_exposed_form_alter(&$form, $form_state) {
+  if (isset($form['date_filter']['value']['#date_format'])) {
+    $form['date_filter']['value']['#date_format'] = 'm-d-Y';
+  }
+}
