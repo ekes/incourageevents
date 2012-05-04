@@ -179,6 +179,10 @@ blockquote cite {
   clear: left;
 }
 
+#edit-field-location-reference-nid {
+  width: 200px;
+}
+
 .view-location-upcoming .view-content div.body,
 .view-upcoming .view-content div.body {
   margin-left: 250px;
