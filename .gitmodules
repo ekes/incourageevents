@@ -151,3 +151,6 @@
 [submodule "modules/contrib/viewfield"]
 	path = modules/contrib/viewfield
 	url = git://git.iskra.net/drupal/contrib/viewfield
+[submodule "modules/custom/viewfield_plaintext"]
+	path = modules/custom/viewfield_plaintext
+	url = git://git.iskra.net/drupal/custom/viewfield_plaintext
