@@ -148,3 +148,6 @@
 [submodule "modules/contrib/nat"]
 	path = modules/contrib/nat
 	url = git://git.drupal.org/project/nat
+[submodule "modules/contrib/viewfield"]
+	path = modules/contrib/viewfield
+	url = git://git.iskra.net/drupal/contrib/viewfield
