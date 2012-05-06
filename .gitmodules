@@ -142,3 +142,6 @@
 [submodule "modules/contrib/simplenews"]
 	path = modules/contrib/simplenews
 	url = git://git.drupal.org/project/simplenews
+[submodule "modules/custom/date_repeat_token"]
+	path = modules/custom/date_repeat_token
+	url = git://git.iskra.net/drupal/custom/dtr
