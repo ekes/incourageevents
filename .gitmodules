@@ -154,3 +154,6 @@
 [submodule "modules/custom/viewfield_plaintext"]
 	path = modules/custom/viewfield_plaintext
 	url = git://git.iskra.net/drupal/custom/viewfield_plaintext
+[submodule "modules/features/bulletin"]
+	path = modules/features/bulletin
+	url = git://git.iskra.net/drupal/custom/bulletin
