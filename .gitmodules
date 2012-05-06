@@ -145,3 +145,6 @@
 [submodule "modules/custom/date_repeat_token"]
 	path = modules/custom/date_repeat_token
 	url = git://git.iskra.net/drupal/custom/dtr
+[submodule "modules/contrib/nat"]
+	path = modules/contrib/nat
+	url = git://git.drupal.org/project/nat
